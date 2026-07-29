@@ -1,0 +1,638 @@
+/* =====================================================================
+   PARÓQUIA NOSSA SENHORA DO ROSÁRIO — ESTILOS
+   Organização:
+   1. Cores principais (variáveis) / temas / acessibilidade
+   2. Reset básico e correção do elemento [hidden]
+   3. Animações (entrada, saída, toque, ripple)
+   4. Tela de boas-vindas / imagem principal / logo / avatar
+   5. Cabeçalho e navegação
+   6. Tela inicial (identidade da paróquia) e rodapé
+   7. Cards, botões e formulários
+   8. Oferta / PIX
+   9. Igrejas, imagem padronizada e galeria de fotos
+   10. Modal e toast
+   11. Responsividade (tablet / desktop)
+   ===================================================================== */
+
+/* =====================================================================
+   🎨 CORES PRINCIPAIS DO SITE
+   ==================================================
+   Para mudar a identidade visual do sistema, altere as cores abaixo.
+   Você não precisa procurar cores pelo restante do arquivo CSS — quase
+   tudo usa estas variáveis.
+
+   --cor-cabecalho        → cor da barra superior (e do topo das telas
+                            de boas-vindas/retorno);
+   --cor-background       → cor de fundo principal do site;
+   --cor-card             → cor de fundo dos cards;
+   --cor-botoes           → cor principal dos botões;
+   --cor-botoes-hover     → cor dos botões ao passar o mouse/tocar;
+   --cor-texto            → cor do texto principal;
+   --cor-texto-secundario → cor de textos secundários (datas, legendas);
+   --cor-borda            → cor das bordas e divisórias;
+   --cor-destaque         → cor de destaque (menu ativo, indicadores,
+                            filtros selecionados, cards em destaque);
+   --cor-fundo-suave      → cor de fundo suave (chips, áreas internas
+                            de um card);
+   --sombra-card          → sombra padrão dos cards.
+
+   IMPORTANTE: as cores de identificação de cada igreja/capela (usadas
+   nos cards, horários, avisos e eventos) são independentes destas e
+   ficam no script.js, dentro de cada item de IGREJAS — não são afetadas
+   por esta seção.
+   ================================================== */
+:root{
+  /* COR DO CABEÇALHO E NAVEGAÇÃO */
+  --cor-cabecalho:#7A1F2B;
+  --cor-cabecalho-escura:#5C1620; /* tom mais escuro, usado em gradientes */
+
+  /* COR DE FUNDO DO SITE */
+  --cor-background:#FAF7F2;
+
+  /* COR DOS CARDS */
+  --cor-card:#FFFFFF;
+  /* COR DE FUNDO SUAVE (chips, áreas internas de um card) */
+  --cor-fundo-suave:#F3ECE2;
+
+  /* COR DAS BORDAS */
+  --cor-borda:#E7DED3;
+
+  /* COR DO TEXTO PRINCIPAL */
+  --cor-texto:#2B2320;
+  /* COR DO TEXTO SECUNDÁRIO */
+  --cor-texto-secundario:#6B5F58;
+
+  /* COR PRINCIPAL DOS BOTÕES */
+  --cor-botoes:#7A1F2B;
+  /* COR DOS BOTÕES AO PASSAR O MOUSE / TOCAR */
+  --cor-botoes-hover:#93283A;
+
+  /* COR DE DESTAQUE (menu ativo, filtros, indicadores) */
+  --cor-destaque:#7A1F2B;
+  /* COR DE DESTAQUE DOURADO (usada na área de Oferta) */
+  --cor-dourado:#B98B2E;
+
+  /* CORES DE STATUS (avisos e mensagens) */
+  --cor-sucesso:#2E7D53;
+  --cor-atencao:#B9762E;
+  --cor-urgente:#B23A2E;
+
+  /* SOMBRAS */
+  --sombra-card:0 2px 10px rgba(43,35,32,0.08);
+  --sombra-media:0 8px 24px rgba(43,35,32,0.12);
+
+  --raio:16px;
+  --raio-pequeno:10px;
+  --fonte-titulo:Georgia,'Times New Roman',ui-serif,serif;
+  --fonte-corpo:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --duracao-transicao:.22s;
+
+  /* COR DA ABA ATIVA (navegação) — pode ser igual ou diferente de
+     --cor-destaque, dependendo do quanto você quiser realçar a aba
+     selecionada na barra de navegação. */
+  --cor-aba-ativa:#7A1F2B;
+}
+
+/* TEMA ESCURO */
+[data-tema="escuro"]{
+  --cor-cabecalho:#C96B78;
+  --cor-cabecalho-escura:#E38893;
+  --cor-background:#1C1815;
+  --cor-card:#262019;
+  --cor-fundo-suave:#2E271F;
+  --cor-borda:#3B332A;
+  --cor-texto:#F2EAE0;
+  --cor-texto-secundario:#B8AB9C;
+  --cor-botoes:#C96B78;
+  --cor-botoes-hover:#D98793;
+  --cor-destaque:#C96B78;
+  --cor-dourado:#D8AE5C;
+  --cor-aba-ativa:#C96B78;
+}
+
+/* ALTO CONTRASTE */
+[data-alto-contraste="true"]{
+  --cor-cabecalho:#FFD54A;
+  --cor-cabecalho-escura:#FFD54A;
+  --cor-background:#000000;
+  --cor-card:#000000;
+  --cor-fundo-suave:#101010;
+  --cor-borda:#FFFFFF;
+  --cor-texto:#FFFFFF;
+  --cor-texto-secundario:#EDEDED;
+  --cor-botoes:#FFD54A;
+  --cor-botoes-hover:#FFE28A;
+  --cor-destaque:#FFD54A;
+  --cor-dourado:#FFD54A;
+  --cor-aba-ativa:#FFD54A;
+  --sombra-card:none;
+  --sombra-media:none;
+}
+
+/* TEMAS PARA DALTONISMO */
+[data-daltonismo="protanopia"]{
+  --cor-cabecalho:#2E5FB2; --cor-botoes:#2E5FB2; --cor-botoes-hover:#3E72C9; --cor-destaque:#2E5FB2; --cor-aba-ativa:#2E5FB2;
+  --cor-urgente:#B2862E; --cor-atencao:#8A6A1E; --cor-sucesso:#2E7D53;
+}
+[data-daltonismo="deuteranopia"]{
+  --cor-cabecalho:#2E5FB2; --cor-botoes:#2E5FB2; --cor-botoes-hover:#3E72C9; --cor-destaque:#2E5FB2; --cor-aba-ativa:#2E5FB2;
+  --cor-urgente:#B2862E; --cor-atencao:#8A6A1E; --cor-sucesso:#2E5FB2;
+}
+[data-daltonismo="tritanopia"]{
+  --cor-cabecalho:#B2382E; --cor-botoes:#B2382E; --cor-botoes-hover:#C24C41; --cor-destaque:#B2382E; --cor-aba-ativa:#B2382E;
+  --cor-urgente:#B2382E; --cor-atencao:#B9762E; --cor-sucesso:#2E7D6B;
+}
+
+/* Redução de animações (opção interna do site) */
+[data-reduzir-animacoes="true"] *{
+  animation-duration:0.001ms !important;
+  animation-iteration-count:1 !important;
+  transition-duration:0.001ms !important;
+}
+/* Redução de animações (preferência do sistema operacional) */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation-duration:0.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.001ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   2. RESET BÁSICO E CORREÇÃO DO [hidden]
+   --------------------------------------------------------------------- */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; }
+
+/* Garante que qualquer elemento com o atributo "hidden" realmente não
+   ocupe espaço nem apareça como uma barra/área em branco — mesmo que
+   outra regra do CSS (ex.: display:flex de uma classe) tente competir
+   com o estilo padrão do navegador para esse elemento. */
+[hidden]{ display:none !important; }
+
+body{
+  margin:0;
+  background:var(--cor-background);
+  color:var(--cor-texto);
+  font-family:var(--fonte-corpo);
+  font-size:16px;
+  line-height:1.55;
+  transition:background var(--duracao-transicao), color var(--duracao-transicao);
+}
+button, input, select, textarea{ font-family:inherit; font-size:inherit; color:inherit; }
+button{ cursor:pointer; }
+img{ max-width:100%; display:block; }
+h1,h2,h3{ font-family:var(--fonte-titulo); margin:0 0 .4em; }
+p{ margin:0 0 .8em; }
+
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible{
+  outline:3px solid var(--cor-dourado);
+  outline-offset:2px;
+}
+
+/* Símbolo de reserva quando uma imagem não pode ser carregada */
+.imagem-fallback{
+  display:flex; align-items:center; justify-content:center; width:100%; height:100%;
+  font-size:1.6rem; color:var(--cor-texto-secundario); background:var(--cor-fundo-suave);
+}
+.caixa-logo-pequena .imagem-fallback,
+.paroquia-imagem-principal-caixa .imagem-fallback,
+.sobre-logo .imagem-fallback{
+  border-radius:50%; background:var(--cor-fundo-suave);
+}
+.avatar-cabecalho .imagem-fallback{
+  border-radius:50%; background:rgba(255,255,255,.18); font-size:.9rem; color:#fff;
+}
+
+/* ---------------------------------------------------------------------
+   3. ANIMAÇÕES
+   --------------------------------------------------------------------- */
+@keyframes surgir{ from{ opacity:0; transform:translateY(14px) scale(.96);} to{ opacity:1; transform:translateY(0) scale(1);} }
+@keyframes surgirSuave{ from{ opacity:0;} to{ opacity:1;} }
+@keyframes crescerModal{ from{ opacity:0; transform:scale(.95);} to{ opacity:1; transform:scale(1);} }
+@keyframes crescerTela{ from{ opacity:0; transform:translateY(14px) scale(.97);} to{ opacity:1; transform:translateY(0) scale(1);} }
+
+
+.anim-entrada{ animation:crescerTela .5s ease; }
+@keyframes surgirEsquerda{ from{ opacity:0; transform:translateX(-42px);} to{ opacity:1; transform:translateX(0);} }
+
+/* A troca de aba (Horários → Avisos etc.) usa só um fade rápido no
+   contêiner da tela — quem realmente "aparece" visivelmente, um a um,
+   são os próprios cards logo abaixo (ver .lista-cards .item-card). */
+.view:not([hidden]){ animation:surgirSuave .2s ease; }
+.item-card, .card, .atalho{ animation:surgir .4s cubic-bezier(.2,.8,.3,1) backwards; }
+
+/* Cards de listas (Horários, Avisos, Eventos, Igrejas): entram um de
+   cada vez, deslizando da esquerda para a direita, na ordem em que
+   aparecem na tela (de cima para baixo). O atraso de cada card é
+   calculado pelo script.js (variável --atraso-entrada), então funciona
+   para qualquer quantidade de itens — não só os 5 primeiros. */
+.lista-cards .item-card{
+  animation:surgirEsquerda .6s cubic-bezier(.16,.8,.24,1) backwards;
+  animation-delay:var(--atraso-entrada, 0s);
+}
+.avisos-destaque .aviso-destaque-item{
+  animation:surgirEsquerda .55s cubic-bezier(.16,.8,.24,1) backwards;
+  animation-delay:var(--atraso-entrada, 0s);
+}
+.atalhos-grid .atalho{
+  animation:surgirEsquerda .5s cubic-bezier(.16,.8,.24,1) backwards;
+  animation-delay:var(--atraso-entrada, 0s);
+}
+
+/* Saída suave das telas de boas-vindas/retorno ao tocar em "Entrar" /
+   "Acessar aplicativo" — evita a troca instantânea e seca de telas. */
+.tela-saindo{ animation:desaparecerTela .26s ease forwards; }
+@keyframes desaparecerTela{ from{ opacity:1; transform:scale(1);} to{ opacity:0; transform:scale(.97);} }
+
+/* Animação de toque/clique — funciona em mouse, toque e caneta, já que
+   :hover não existe da mesma forma em celulares. Aplicada via
+   pointerdown/pointerup pelo script.js. */
+.efeito-clique{
+  transform:scale(.96) !important;
+  transition:transform .12s ease !important;
+}
+
+/* Efeito "ripple" (onda) discreto ao tocar/clicar em botões, cards e
+   demais elementos interativos — criado dinamicamente pelo script.js. */
+.ripple{
+  position:absolute; border-radius:50%; pointer-events:none;
+  background:rgba(0,0,0,.14); transform:scale(0);
+  animation:espalharRipple .6s ease-out;
+}
+.botao-primario .ripple, .botao-perigo .ripple, .botao-whatsapp .ripple, .cabecalho .ripple, .nav-item.ativo .ripple{
+  background:rgba(255,255,255,.4);
+}
+@keyframes espalharRipple{ to{ transform:scale(1); opacity:0; } }
+
+/* ---------------------------------------------------------------------
+   4. TELA DE BOAS-VINDAS / IMAGEM PRINCIPAL / LOGO
+   --------------------------------------------------------------------- */
+.tela-cheia{
+  min-height:100dvh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:linear-gradient(180deg, var(--cor-cabecalho-escura), var(--cor-cabecalho));
+}
+.boas-vindas-card{
+  background:var(--cor-card);
+  border-radius:var(--raio);
+  box-shadow:var(--sombra-media);
+  padding:32px 24px;
+  max-width:440px;
+  width:100%;
+  text-align:center;
+}
+
+/* Imagem principal da paróquia — grande, circular, centralizada,
+   sem deformar (object-fit: cover) e responsiva. O contêiner é flex
+   e centraliza a imagem nos dois eixos, mesmo se algum ajuste de
+   tamanho responsivo não bater exatamente com o da imagem interna. */
+.paroquia-imagem-principal-caixa{
+  width:150px; height:150px; margin:0 auto 18px;
+  display:flex; align-items:center; justify-content:center;
+}
+.paroquia-imagem-principal{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:var(--sombra-media);
+  border:3px solid var(--cor-fundo-suave);
+  animation:surgirSuave .6s ease;
+}
+.boas-vindas-texto{ color:var(--cor-texto-secundario); }
+.form-boas-vindas{ display:flex; flex-direction:column; gap:6px; text-align:left; margin-top:20px; }
+.form-boas-vindas label{ font-size:.85rem; font-weight:600; margin-top:10px; }
+.form-boas-vindas input{
+  padding:12px 14px;border:1px solid var(--cor-borda);border-radius:var(--raio-pequeno);
+  background:var(--cor-background);color:var(--cor-texto);
+}
+
+/* Seletor de avatar (primeiro acesso e Configurações) */
+.rotulo-avatar{ font-size:.85rem; font-weight:600; margin-top:14px; display:block; }
+.avatar-opcoes{ display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; }
+.avatar-opcao{
+  width:56px; height:56px; border-radius:50%; padding:0; overflow:hidden;
+  border:3px solid transparent; background:var(--cor-fundo-suave); flex-shrink:0;
+  transition:transform var(--duracao-transicao), border-color var(--duracao-transicao); min-height:0;
+}
+.avatar-opcao img{ width:100%; height:100%; object-fit:cover; }
+.avatar-opcao.selecionado{ border-color:var(--cor-destaque); transform:scale(1.06); }
+
+/* Logo discreta no rodapé das telas de boas-vindas */
+.caixa-logo-pequena{ width:40px; height:40px; margin:22px auto 0; }
+.logo-rodape-tela{
+  width:40px; height:40px; border-radius:50%; object-fit:cover; opacity:.85;
+}
+
+/* ---------------------------------------------------------------------
+   6a. BOTÕES
+   --------------------------------------------------------------------- */
+.botao{
+  border:none;border-radius:var(--raio-pequeno);
+  padding:13px 18px;font-weight:600;font-size:1rem;
+  transition:transform var(--duracao-transicao), filter var(--duracao-transicao), box-shadow var(--duracao-transicao);
+  min-height:48px;
+}
+.botao:hover{ box-shadow:var(--sombra-card); }
+.botao:active{ transform:scale(.97); }
+.botao-primario{ background:var(--cor-botoes); color:#fff; }
+.botao-primario:hover{ background:var(--cor-botoes-hover); }
+.botao-secundario{ background:var(--cor-fundo-suave); color:var(--cor-texto); border:1px solid var(--cor-borda); }
+.botao-perigo{ background:var(--cor-urgente); color:#fff; }
+.botao-grande{ width:100%; font-size:1.05rem; padding:14px; }
+.botao-icone{ width:40px;height:40px;padding:0;border-radius:50%;background:var(--cor-fundo-suave); border:1px solid var(--cor-borda); min-height:0; }
+.botao-pequeno{ padding:8px 12px; font-size:.85rem; min-height:36px; }
+
+/* ---------------------------------------------------------------------
+   5. LAYOUT GERAL
+   --------------------------------------------------------------------- */
+.cabecalho{
+  position:sticky; top:0; z-index:20;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 16px;
+  background:var(--cor-cabecalho); color:#fff;
+  box-shadow:var(--sombra-card);
+}
+.cabecalho-marca{ display:flex; align-items:center; gap:10px; min-width:0; }
+/* Avatar do usuário no cabeçalho — imagem de santo escolhida no
+   primeiro acesso (ou trocada depois em Configurações). */
+.avatar-cabecalho{
+  width:60px;height:60px;border-radius:25%;
+  display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;
+  overflow:hidden; border:2px solid rgba(255,255,255,.35);
+}
+.avatar-cabecalho img{ width:100%; height:100%; object-fit:cover; }
+.cabecalho-titulos{ display:flex; flex-direction:column; min-width:0; justify-content:center; }
+.cabecalho-saudacao{ font-size:1rem; font-weight:600; opacity:.95; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.nav-desktop{ display:none; }
+
+.conteudo-principal{ padding:16px; padding-bottom:24px; max-width:960px; margin:0 auto; }
+.titulo-view{ margin-bottom:4px; }
+.subtexto-view{ color:var(--cor-texto-secundario); }
+.data-atual{ color:var(--cor-texto-secundario); font-size:.9rem; margin-bottom:16px; text-transform:capitalize; }
+
+/* Imagem principal exibida no topo da tela inicial, com o nome da
+   paróquia logo abaixo (bloco de identidade visual da tela inicial).
+   Perfeitamente centralizado, no mesmo eixo da imagem. */
+.identidade-paroquia{
+  display:flex; flex-direction:column; align-items:center;
+  text-align:center; margin-bottom:10px;
+}
+.paroquia-imagem-principal-caixa-inicio{ width:130px; height:130px; margin-bottom:8px; }
+.paroquia-imagem-principal-caixa-inicio .paroquia-imagem-principal{ width:130px; height:130px; }
+.identidade-paroquia-nome{
+  font-size:1.25rem; color:var(--cor-texto); margin-bottom:14px; font-weight:600;
+}
+
+/* Rodapé discreto, com a logo da paróquia */
+.rodape-app{
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  padding:16px; color:var(--cor-texto-secundario); font-size:.8rem;
+  max-width:960px; margin:0 auto;
+}
+/* Espaço reservado para a barra de navegação fixa não cobrir o rodapé
+   (só necessário enquanto a barra inferior estiver visível — abaixo
+   de 960px; veja a media query que a esconde em telas maiores). */
+@media (max-width:959px){
+  .rodape-app{ padding-bottom:calc(78px + env(safe-area-inset-bottom)); }
+}
+.rodape-app span{ font-family:var(--fonte-titulo); font-style:italic; }
+
+.nav-mobile{
+  position:fixed; bottom:0; left:0; right:0; z-index:20;
+  display:flex; background:var(--cor-card);
+  border-top:1px solid var(--cor-borda);
+  padding:6px 4px calc(6px + env(safe-area-inset-bottom));
+  box-shadow:0 -2px 10px rgba(0,0,0,.06);
+}
+.nav-item{
+  flex:1; display:flex; flex-direction:column; align-items:center; gap:2px;
+  background:none; border:none; padding:6px 2px; border-radius:14px;
+  color:var(--cor-texto-secundario); font-size:.7rem; min-height:0;
+  transition:transform var(--duracao-transicao), color var(--duracao-transicao), background var(--duracao-transicao);
+}
+.nav-item .nav-icone{ font-size:1.15rem; transition:transform var(--duracao-transicao); }
+.nav-item.ativo{
+  color:#fff; font-weight:700; background:var(--cor-aba-ativa);
+  animation:destacarAba .25s ease;
+}
+.nav-item.ativo .nav-icone{ transform:scale(1.12); }
+@keyframes destacarAba{ from{ transform:scale(.92);} to{ transform:scale(1);} }
+
+/* ---------------------------------------------------------------------
+   6b. CARDS
+   --------------------------------------------------------------------- */
+.cards-resumo{ display:grid; gap:12px; margin-bottom:20px; }
+.card{
+  background:var(--cor-card);
+  border-radius:var(--raio);
+  padding:16px;
+  box-shadow:var(--sombra-card);
+  border-left:6px solid var(--cor-borda);
+  transition:transform var(--duracao-transicao), box-shadow var(--duracao-transicao);
+}
+.card-eyebrow{ font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--cor-texto-secundario); font-weight:700; }
+.card-destaque{ border-left-color:var(--cor-destaque); }
+.card-proxima-conteudo{ margin-top:6px; }
+.card-proxima-conteudo .linha-1{ font-family:var(--fonte-titulo); font-size:1.1rem; }
+.card-proxima-conteudo .linha-2{ color:var(--cor-texto-secundario); font-size:.9rem; }
+.card-vazio{ color:var(--cor-texto-secundario); font-style:italic; }
+
+.atalhos-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+.atalho{
+  background:var(--cor-card); border:1px solid var(--cor-borda); border-radius:var(--raio-pequeno);
+  padding:14px 10px; display:flex; flex-direction:column; align-items:center; gap:6px; font-weight:600; font-size:.85rem;
+  min-height:0; transition:transform var(--duracao-transicao), box-shadow var(--duracao-transicao);
+}
+.atalho:hover{ box-shadow:var(--sombra-card); transform:translateY(-2px); }
+.atalho-icone{ font-size:1.4rem; }
+
+.lista-cards{ display:grid; gap:12px; }
+.lista-cards-eventos{ grid-template-columns:1fr; }
+
+.item-card{
+  background:var(--cor-card); border-radius:var(--raio); box-shadow:var(--sombra-card);
+  border-left:6px solid var(--cor-borda); padding:14px 16px; position:relative;
+  transition:transform var(--duracao-transicao), box-shadow var(--duracao-transicao);
+}
+.item-card:hover{ transform:translateY(-2px); box-shadow:var(--sombra-media); }
+.item-card .etiqueta-igreja{
+  display:inline-block; font-size:.7rem; font-weight:700; padding:2px 8px; border-radius:999px;
+  background:var(--cor-fundo-suave); color:var(--cor-texto); margin-bottom:6px;
+}
+.item-card h3{ margin:0 0 4px; font-size:1.15rem; }
+.item-card .meta{ color:var(--cor-texto-secundario); font-size:.92rem; margin-top:2px; }
+.item-card .meta-data{ font-weight:600; color:var(--cor-texto); }
+.item-card .descricao{ margin-top:8px; font-size:.96rem; }
+
+.aviso-prioridade{ display:inline-block; font-size:.7rem; font-weight:700; padding:2px 8px; border-radius:999px; color:#fff; margin-left:6px; }
+.aviso-normal{ background:var(--cor-texto-secundario); }
+.aviso-importante{ background:var(--cor-atencao); }
+.aviso-urgente{ background:var(--cor-urgente); }
+
+.avisos-destaque{ display:flex; flex-direction:column; gap:8px; margin-bottom:16px; }
+.aviso-destaque-item{ border-radius:var(--raio-pequeno); padding:12px 14px; color:#fff; font-size:.9rem; }
+.aviso-destaque-item.importante{ background:var(--cor-atencao); }
+.aviso-destaque-item.urgente{ background:var(--cor-urgente); }
+.aviso-destaque-item strong{ display:block; margin-bottom:2px; }
+
+/* Filtros */
+.filtros{ display:flex; gap:8px; overflow-x:auto; padding-bottom:8px; margin-bottom:14px; -webkit-overflow-scrolling:touch; }
+.filtro-chip{
+  flex-shrink:0; border:1px solid var(--cor-borda); background:var(--cor-card); border-radius:999px;
+  padding:8px 14px; font-size:.82rem; font-weight:600; color:var(--cor-texto-secundario); white-space:nowrap;
+  transition:background var(--duracao-transicao), color var(--duracao-transicao), border-color var(--duracao-transicao), transform .15s ease;
+}
+.filtro-chip.ativo{ background:var(--cor-destaque); color:#fff; border-color:var(--cor-destaque); transform:scale(1.04); }
+
+/* ---------------------------------------------------------------------
+   7. OFERTA / PIX
+   --------------------------------------------------------------------- */
+.card-pix{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px; border-left-color:var(--cor-dourado); }
+.pix-qrcode{ width:min(220px,70vw); height:auto; border-radius:var(--raio-pequeno); border:1px solid var(--cor-borda); }
+
+.pix-chave-container{ width:100%; }
+.pix-chave-linha{
+  display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+  background:var(--cor-fundo-suave); padding:14px 16px; border-radius:var(--raio-pequeno);
+}
+.pix-chave{ font-family:monospace; font-size:1rem; font-weight:700; word-break:break-all; }
+.pix-tipo-chave{ margin-top:8px; font-size:.9rem; color:var(--cor-texto-secundario); text-align:left; padding:0 2px; }
+.pix-descricao{ color:var(--cor-texto-secundario); font-size:.95rem; margin-top:2px; }
+
+.card-passos-pix{ border-left-color:var(--cor-borda); margin-top:12px; }
+.card-passos-pix h3{ font-size:1.05rem; }
+.lista-passos{ margin:0; padding-left:20px; color:var(--cor-texto-secundario); }
+.lista-passos li{ margin-bottom:6px; }
+
+/* ---------------------------------------------------------------------
+   6c. FORMULÁRIOS (configurações)
+   --------------------------------------------------------------------- */
+.form-config{ display:flex; flex-direction:column; gap:10px; }
+.form-config label{ font-size:.82rem; font-weight:700; margin-top:6px; }
+.form-config input{
+  padding:11px 12px; border:1px solid var(--cor-borda); border-radius:var(--raio-pequeno);
+  background:var(--cor-background); color:var(--cor-texto); width:100%;
+}
+.config-grupo{ background:var(--cor-card); border-radius:var(--raio); padding:16px; margin-bottom:14px; box-shadow:var(--sombra-card); }
+.config-grupo h3{ margin-top:0; font-size:1rem; }
+.config-linha{ display:flex; align-items:center; justify-content:space-between; padding:8px 0; gap:10px; }
+.switch{ width:22px; height:22px; }
+.opcoes-tema{ display:flex; flex-wrap:wrap; gap:8px; }
+.sobre-app{ text-align:center; }
+.sobre-app p{ margin:2px 0; font-size:.9rem; color:var(--cor-texto-secundario); }
+.sobre-logo{ width:56px; height:56px; border-radius:50%; overflow:hidden; background:var(--cor-fundo-suave);
+  display:flex; align-items:center; justify-content:center; font-size:1.6rem; margin:0 auto 10px; }
+.sobre-logo img{ width:100%; height:100%; object-fit:cover; }
+
+/* ---------------------------------------------------------------------
+   8. IGREJAS, IMAGEM PADRONIZADA E GALERIA DE FOTOS
+   --------------------------------------------------------------------- */
+.igreja-card{ padding:0; overflow:hidden; cursor:pointer; }
+.igreja-card-info{ padding:14px 16px; }
+
+/* Área de imagem padronizada no topo do card: object-fit "contain"
+   para nunca cortar nem deformar (funciona com fotos verticais,
+   horizontais, quadradas e logos); o espaço restante usa uma cor de
+   fundo compatível com a identidade da própria igreja. */
+.igreja-imagem-topo{
+  width:100%; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; overflow:hidden;
+}
+.igreja-imagem-topo img{ width:100%; height:100%; object-fit:contain; }
+.igreja-imagem-topo .imagem-fallback{ background:transparent; font-size:2.4rem; }
+
+/* Galeria/carrossel de fotos (aberta ao tocar em uma igreja) */
+.detalhe-igreja{ padding-top:4px; }
+.detalhe-igreja-imagem{
+  width:100%; aspect-ratio:4/3; border-radius:var(--raio); overflow:hidden;
+  background:var(--cor-fundo-suave); display:flex; align-items:center; justify-content:center;
+  font-size:3rem; color:var(--cor-texto-secundario); margin-bottom:14px;
+}
+.galeria{ position:relative; margin-bottom:14px; }
+.galeria-viewport{
+  width:100%; aspect-ratio:4/3; border-radius:var(--raio); overflow:hidden;
+  background:var(--cor-fundo-suave); display:flex; align-items:center; justify-content:center;
+  touch-action:pan-y;
+}
+.galeria-viewport img{ width:100%; height:100%; object-fit:contain; user-select:none; -webkit-user-drag:none; }
+.galeria-seta{
+  position:absolute; top:50%; transform:translateY(-50%); z-index:2;
+  width:40px; height:40px; border-radius:50%; border:none;
+  background:rgba(0,0,0,.45); color:#fff; font-size:1.1rem; min-height:0;
+  display:flex; align-items:center; justify-content:center;
+}
+.galeria-seta-esquerda{ left:8px; }
+.galeria-seta-direita{ right:8px; }
+.galeria-indicadores{ display:flex; justify-content:center; gap:6px; margin-top:10px; }
+.galeria-ponto{
+  width:9px; height:9px; border-radius:50%; background:var(--cor-borda); cursor:pointer; display:inline-block;
+  transition:background var(--duracao-transicao), transform var(--duracao-transicao);
+}
+.galeria-ponto.ativo{ background:var(--cor-destaque); transform:scale(1.2); }
+
+/* Botões de contato no detalhe da igreja (WhatsApp / Google Maps) */
+.detalhe-igreja-acoes{ display:flex; flex-direction:column; gap:10px; margin-top:14px; }
+.detalhe-igreja-acoes .botao{ text-align:center; text-decoration:none; display:block; }
+.botao-whatsapp{ background:#25D366; color:#fff; }
+.botao-whatsapp:hover{ filter:brightness(1.05); }
+
+/* ---------------------------------------------------------------------
+   9. MODAL E TOAST
+   --------------------------------------------------------------------- */
+.modal-overlay{
+  position:fixed; inset:0; background:rgba(20,15,12,.55); z-index:50;
+  display:flex; align-items:flex-end; justify-content:center;
+  animation:surgirSuave .2s ease;
+}
+.modal{
+  background:var(--cor-card); border-radius:20px 20px 0 0; padding:20px; width:100%; max-width:560px;
+  max-height:88dvh; overflow-y:auto; position:relative; box-shadow:var(--sombra-media);
+  animation:crescerModal .28s ease;
+}
+.modal-fechar{
+  position:absolute; top:12px; right:12px; background:var(--cor-fundo-suave); border:none; border-radius:50%;
+  width:34px;height:34px; font-size:1rem; min-height:0;
+}
+.modal h2, .modal h3{ margin-top:4px; padding-right:30px; }
+
+.toast-container{ position:fixed; top:16px; left:50%; transform:translateX(-50%); z-index:60; display:flex; flex-direction:column; gap:8px; width:min(92vw,420px); }
+.toast{
+  background:var(--cor-texto); color:var(--cor-background); padding:12px 16px; border-radius:var(--raio-pequeno);
+  box-shadow:var(--sombra-media); font-size:.9rem; animation:surgir .25s ease;
+}
+.toast.sucesso{ background:var(--cor-sucesso); color:#fff; }
+.toast.erro{ background:var(--cor-urgente); color:#fff; }
+
+/* ---------------------------------------------------------------------
+   10. RESPONSIVIDADE — TABLET E COMPUTADOR
+   --------------------------------------------------------------------- */
+@media (min-width:700px){
+  .cards-resumo{ grid-template-columns:1fr 1fr; }
+  .atalhos-grid{ grid-template-columns:repeat(4,1fr); }
+  .lista-cards{ grid-template-columns:1fr 1fr; }
+  .lista-cards-eventos{ grid-template-columns:1fr 1fr; }
+  .modal{ border-radius:20px; align-self:center; }
+  .modal-overlay{ align-items:center; }
+  .paroquia-imagem-principal, .paroquia-imagem-principal-caixa{ width:180px; height:180px; }
+  /* Tamanho específico da imagem da tela inicial (mais discreta que a
+     das telas de boas-vindas) — precisa vir depois da regra acima para
+     não ser sobrescrita por ela. */
+  .paroquia-imagem-principal-caixa-inicio,
+  .paroquia-imagem-principal-caixa-inicio .paroquia-imagem-principal{ width:150px; height:150px; }
+}
+
+@media (min-width:960px){
+  .nav-mobile{ display:none; }
+  .nav-desktop{ display:flex; gap:4px; }
+  .nav-desktop .nav-item{ flex-direction:row; gap:6px; color:rgba(255,255,255,.8); padding:8px 12px; }
+  .nav-desktop .nav-item.ativo{ background:rgba(255,255,255,.18); color:#fff; }
+  .conteudo-principal{ padding:28px; }
+  .lista-cards{ grid-template-columns:1fr 1fr 1fr; }
+  .atalhos-grid{ grid-template-columns:repeat(5,1fr); }
+  .igreja-imagem-topo, .galeria-viewport{ aspect-ratio:16/9; }
+}

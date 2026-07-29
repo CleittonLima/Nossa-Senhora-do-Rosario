@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#7A1F2B">
+<title>Paróquia Nossa Senhora do Rosário</title>
+<meta name="description" content="Site informativo da Paróquia Nossa Senhora do Rosário: horários, avisos, eventos, igrejas, fotos e oferta via PIX.">
+
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+
+<!-- Definida aqui (e não só em script.js) para garantir que já exista
+     antes de qualquer <img onerror="..."> dentro do <body> disparar,
+     mesmo que script.js ainda não tenha terminado de carregar. -->
+<script>
+  function lidarFalhaImagem(imgEl, simboloReserva){
+    imgEl.style.display = "none";
+    var reserva = imgEl.nextElementSibling;
+    if(!reserva || !reserva.classList || !reserva.classList.contains("imagem-fallback")){
+      reserva = document.createElement("span");
+      reserva.className = "imagem-fallback";
+      imgEl.insertAdjacentElement("afterend", reserva);
+    }
+    reserva.textContent = simboloReserva;
+  }
+</script>
+</head>
+<body>
+
+<!-- =====================================================
+     TELA DE BOAS-VINDAS (primeiro acesso)
+     Exibida apenas quando ainda não há usuário salvo no localStorage
+     ===================================================== -->
+<section id="tela-boas-vindas" class="tela-cheia" hidden>
+  <div class="boas-vindas-card anim-entrada">
+
+    <!--
+        IMAGEM PRINCIPAL DA PARÓQUIA
+        ALTERE A IMAGEM PRINCIPAL DA PARÓQUIA AQUI
+
+        Para trocar, substitua o arquivo:
+        assets/Logos/Brasão Rosário.png
+        (ou altere o caminho do atributo src abaixo)
+        Tamanho recomendado: 900 x 900 px (quadrada).
+    -->
+    <div class="paroquia-imagem-principal-caixa">
+      <img class="paroquia-imagem-principal" id="imagem-principal-boasvindas"
+           src="assets/Logos/Brasão Rosário.png"
+           alt="Paróquia Nossa Senhora do Rosário"
+           onerror="lidarFalhaImagem(this,'✝')">
+    </div>
+
+    <!-- ALTERE AQUI O NOME PRINCIPAL DA PARÓQUIA -->
+    <h1>Paróquia Nossa Senhora do Rosário</h1>
+    <p class="boas-vindas-texto">Que bom ter você aqui! Para começarmos, como podemos te chamar?</p>
+
+    <form id="form-boas-vindas" class="form-boas-vindas">
+      <label for="input-nome-completo">Nome completo</label>
+      <input type="text" id="input-nome-completo" name="nomeCompleto" placeholder="Ex.: Cleiton Lima" required autocomplete="name">
+
+      <label for="input-apelido">Como você gostaria de ser chamado?</label>
+      <input type="text" id="input-apelido" name="apelido" placeholder="Ex.: Cleiton" required autocomplete="nickname">
+
+      <label class="rotulo-avatar">Escolha uma imagem para o seu perfil</label>
+      <div class="avatar-opcoes" id="avatar-opcoes-boasvindas"></div>
+
+      <button type="submit" class="botao botao-primario botao-grande">Entrar 🙏</button>
+    </form>
+
+    <!--
+        LOGO PRINCIPAL DA PARÓQUIA (rodapé da tela de primeiro acesso)
+        ALTERE A LOGO PRINCIPAL AQUI
+
+        Para trocar a logo, substitua o arquivo:
+        assets/Logos/Brasão Rosário.png
+        (ou altere o caminho do atributo src abaixo)
+        Tamanho recomendado: 500 x 500 px.
+    -->
+    <div class="caixa-logo-pequena">
+      <img class="logo-rodape-tela" src="assets/Logos/Brasão Rosário.png"
+           alt="Logo da Paróquia Nossa Senhora do Rosário" onerror="lidarFalhaImagem(this,'✝')">
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     TELA DE BOAS-VINDAS DE VOLTA
+     Exibida sempre que o usuário já possui nome salvo — não pede o
+     nome (nem o avatar) novamente, apenas dá boas-vindas e leva à
+     tela inicial.
+     ===================================================== -->
+<section id="tela-retorno" class="tela-cheia" hidden>
+  <div class="boas-vindas-card anim-entrada">
+
+    <!-- ALTERE A IMAGEM PRINCIPAL DA PARÓQUIA AQUI (mesma imagem do primeiro acesso) -->
+    <div class="paroquia-imagem-principal-caixa">
+      <img class="paroquia-imagem-principal" src="assets/Logos/Brasão Rosário.png"
+           alt="Paróquia Nossa Senhora do Rosário" onerror="lidarFalhaImagem(this,'✝')">
+    </div>
+
+    <h1 id="nome-paroquia-retorno">Paróquia Nossa Senhora do Rosário</h1>
+    <p class="boas-vindas-texto" id="saudacao-retorno">Olá! 🙏</p>
+    <p class="boas-vindas-texto">Que bom ter você de volta.</p>
+    <button type="button" class="botao botao-primario botao-grande" id="btn-acessar-app">Acessar aplicativo</button>
+
+    <!-- ALTERE A LOGO PRINCIPAL AQUI (rodapé da tela de boas-vindas) -->
+    <div class="caixa-logo-pequena">
+      <img class="logo-rodape-tela" src="assets/Logos/Brasão Rosário.png"
+           alt="Logo da Paróquia Nossa Senhora do Rosário" onerror="lidarFalhaImagem(this,'✝')">
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     APLICATIVO PRINCIPAL
+     ===================================================== -->
+<div id="app" hidden>
+
+  <!-- Cabeçalho: mostra o avatar escolhido pelo usuário (ver script.js,
+       seção 4 — AVATARES) e a saudação. O nome da paróquia não aparece
+       mais aqui; ele fica na tela inicial, abaixo da imagem circular. -->
+  <header class="cabecalho">
+    <div class="cabecalho-marca">
+      <div class="avatar-cabecalho" id="avatar-cabecalho"></div>
+      <div class="cabecalho-titulos">
+        <span id="saudacao-usuario" class="cabecalho-saudacao"></span>
+      </div>
+    </div>
+    <nav class="nav-desktop" id="nav-desktop" aria-label="Navegação principal"></nav>
+  </header>
+
+  <!-- Conteúdo principal: cada view é uma <section data-view="..."> -->
+  <main id="conteudo-principal" class="conteudo-principal">
+
+    <!-- ---------- INÍCIO ---------- -->
+    <section class="view" data-view="inicio">
+      <!-- ALTERE A IMAGEM PRINCIPAL DA PARÓQUIA AQUI (tela inicial) -->
+      <div class="identidade-paroquia">
+        <div class="paroquia-imagem-principal-caixa paroquia-imagem-principal-caixa-inicio">
+          <img class="paroquia-imagem-principal" src="assets/Logos/Brasão Rosário.png"
+               alt="Paróquia Nossa Senhora do Rosário" onerror="lidarFalhaImagem(this,'✝')">
+        </div>
+        <!-- NOME PRINCIPAL DA PARÓQUIA -->
+        <h2 class="identidade-paroquia-nome">Paróquia N. Sra. do Rosário</h2>
+      </div>
+      <h2 class="titulo-view">Início</h2>
+      <p id="data-atual" class="data-atual"></p>
+
+      <div class="cards-resumo">
+        <article class="card card-destaque" id="card-proxima-missa">
+          <span class="card-eyebrow">Próxima missa</span>
+          <div class="card-proxima-conteudo"></div>
+        </article>
+        <article class="card card-destaque" id="card-proximo-evento">
+          <span class="card-eyebrow">Próximo evento</span>
+          <div class="card-proxima-conteudo"></div>
+        </article>
+      </div>
+
+      <div id="avisos-destaque" class="avisos-destaque"></div>
+
+      <div class="atalhos-grid">
+        <button class="atalho" data-ir-para="oferta" style="--atraso-entrada:0s">
+          <span class="atalho-icone" aria-hidden="true">🙏</span><span>Oferta</span>
+        </button>
+        <button class="atalho" data-ir-para="horarios" style="--atraso-entrada:.1s">
+          <span class="atalho-icone" aria-hidden="true">⏰</span><span>Horários</span>
+        </button>
+        <button class="atalho" data-ir-para="avisos" style="--atraso-entrada:.2s">
+          <span class="atalho-icone" aria-hidden="true">📣</span><span>Avisos</span>
+        </button>
+        <button class="atalho" data-ir-para="eventos" style="--atraso-entrada:.3s">
+          <span class="atalho-icone" aria-hidden="true">📅</span><span>Eventos</span>
+        </button>
+        <button class="atalho" data-ir-para="igrejas" style="--atraso-entrada:.4s">
+          <span class="atalho-icone" aria-hidden="true">⛪</span><span>Igrejas e Comunidades</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ---------- OFERTA ---------- -->
+    <section class="view" data-view="oferta" hidden>
+      <h2 class="titulo-view">Oferta</h2>
+      <p class="subtexto-view">Sua contribuição ajuda a manter a vida e as obras da nossa comunidade.</p>
+      <!--
+          QR CODE DO PIX
+          Para trocar o QR Code, substitua: assets/Oferta/Pixteste.png
+          (o card abaixo é preenchido pelo script.js a partir de DADOS_PIX.qrcode)
+      -->
+      <div class="card card-pix" id="card-pix"></div>
+      <div class="card card-passos-pix" id="passos-pix"></div>
+    </section>
+
+    <!-- ---------- HORÁRIOS ---------- -->
+    <section class="view" data-view="horarios" hidden>
+      <h2 class="titulo-view">Horários</h2>
+      <div class="filtros" id="filtros-horarios"></div>
+      <div class="lista-cards" id="lista-horarios"></div>
+    </section>
+
+    <!-- ---------- AVISOS ---------- -->
+    <section class="view" data-view="avisos" hidden>
+      <h2 class="titulo-view">Avisos</h2>
+      <div class="filtros" id="filtros-avisos"></div>
+      <div class="lista-cards" id="lista-avisos"></div>
+    </section>
+
+    <!-- ---------- EVENTOS ---------- -->
+    <section class="view" data-view="eventos" hidden>
+      <h2 class="titulo-view">Eventos</h2>
+      <div class="filtros" id="filtros-eventos"></div>
+      <div class="lista-cards lista-cards-eventos" id="lista-eventos"></div>
+    </section>
+
+    <!-- ---------- IGREJAS ---------- -->
+    <section class="view" data-view="igrejas" hidden>
+      <h2 class="titulo-view">Igrejas e Comunidades</h2>
+      <p class="subtexto-view">Toque em uma igreja para ver fotos e mais informações.</p>
+      <div class="lista-cards" id="lista-igrejas"></div>
+    </section>
+
+    <!-- ---------- CONFIGURAÇÕES ---------- -->
+    <section class="view" data-view="configuracoes" hidden>
+      <h2 class="titulo-view">Configurações</h2>
+
+      <div class="config-grupo">
+        <h3>Seu perfil</h3>
+        <form id="form-perfil" class="form-config">
+          <label for="config-nome-completo">Nome completo</label>
+          <input type="text" id="config-nome-completo" required>
+          <label for="config-apelido">Nome de preferência</label>
+          <input type="text" id="config-apelido" required>
+          <button type="submit" class="botao botao-primario">Salvar perfil</button>
+        </form>
+      </div>
+
+      <div class="config-grupo">
+        <h3>Seu avatar</h3>
+        <p class="subtexto-view">Toque em uma imagem para trocar seu avatar — a troca é salva na hora.</p>
+        <div class="avatar-opcoes" id="config-avatar-opcoes"></div>
+      </div>
+
+      <div class="config-grupo">
+        <h3>Aparência</h3>
+        <div class="opcoes-tema" id="opcoes-tema"></div>
+      </div>
+
+      <div class="config-grupo">
+        <h3>Acessibilidade</h3>
+        <div class="config-linha">
+          <label for="config-reduzir-animacoes">Reduzir animações</label>
+          <input type="checkbox" id="config-reduzir-animacoes" class="switch">
+        </div>
+      </div>
+
+      <div class="config-grupo">
+        <h3>Dados salvos neste dispositivo</h3>
+        <p class="subtexto-view">Este site não usa banco de dados: aqui só ficam salvos, neste navegador, o seu nome, avatar e preferências de aparência.</p>
+        <button type="button" class="botao botao-perigo" id="btn-limpar-dados">Limpar dados locais</button>
+      </div>
+
+      <div class="config-grupo">
+        <h3>Sobre</h3>
+        <div id="sobre-app" class="sobre-app"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Área simples de identidade da paróquia (sem ícone/bolinha).
+       FRASE OU VERSÍCULO EXIBIDO NA ÁREA SUPERIOR
+       O texto abaixo vem de FRASE_RODAPE, no topo do script.js — troque
+       por um versículo, saudação ou outra frase quando quiser. -->
+  <footer class="rodape-app" id="rodape-app">
+    <span id="rodape-nome-paroquia"></span>
+  </footer>
+
+  <!-- Navegação inferior (celular) -->
+  <nav class="nav-mobile" id="nav-mobile" aria-label="Navegação principal"></nav>
+</div>
+
+<!-- =====================================================
+     MODAL GENÉRICO (usado para a galeria de fotos das igrejas)
+     ===================================================== -->
+<div id="modal-overlay" class="modal-overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" id="modal-caixa">
+    <button type="button" class="modal-fechar" id="modal-fechar" aria-label="Fechar">✕</button>
+    <div id="modal-conteudo"></div>
+  </div>
+</div>
+
+<!-- Área para mensagens rápidas (toasts) -->
+<div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
