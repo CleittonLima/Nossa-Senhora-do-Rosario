@@ -272,15 +272,18 @@ const DADOS_PIX = {
    Para adicionar um novo avatar, copie uma linha e ajuste id/nome/imagem.
    ===================================================================== */
 const AVATARES = [
+  { id: "jesus-cristo", nome: "Jesus Cristo", imagem: "assets/Avatares/Jesus.png" },
   { id: "rosario", nome: "Nossa Senhora do Rosário", imagem: "assets/Avatares/Nossa Senhora do Rosário.png" },
-  { id: "sao-cristovao", nome: "São Cristóvão", imagem: "assets/Avatares/São Cristóvão.png" },
   { id: "conceicao", nome: "Nossa Senhora da Conceição", imagem: "assets/Avatares/Nossa Senhora da Conceição.png" },
+  { id: "carmo", nome: "Nossa Senhora do Carmo", imagem: "assets/Avatares/Nossa Senhora do Carmo.png" },
+  { id: "fatima", nome: "Nossa Senhora de Fátima", imagem: "assets/Avatares/Nossa Senhora de Fátima.png" },
+  { id: "gracas", nome: "Nossa Senhora das Graças", imagem: "assets/Avatares/Nossa Senhora das Graças.png" },
+  { id: "sao-cristovao", nome: "São Cristóvão", imagem: "assets/Avatares/São Cristóvão.png" },
+  { id: "sao-jose", nome: "São José", imagem: "assets/Avatares/São José.png" },
   { id: "santa-luzia", nome: "Santa Luzia", imagem: "assets/Avatares/Santa Luzia.png" },
   { id: "santa-terezinha", nome: "Santa Terezinha", imagem: "assets/Avatares/Santa Terezinha.png" },
   { id: "santo-antonio", nome: "Santo Antônio", imagem: "assets/Avatares/Santo Antônio.png" },
-  { id: "jesus-cristo", nome: "Jesus Cristo", imagem: "assets/Avatares/Jesus.png" },
-  { id: "sao-jose", nome: "São José", imagem: "assets/Avatares/São José.png" },
-  { id: "carmo", nome: "Nossa Senhora do Carmo", imagem: "assets/Avatares/Nossa Senhora do Carmo.png" }
+  { id: "acutis", nome: "São Carlo Acutis", imagem: "assets/Avatares/São Carlo Acutis.png" }
 ];
 function obterAvatar(id){ return AVATARES.find(a => a.id === id) || null; }
 
