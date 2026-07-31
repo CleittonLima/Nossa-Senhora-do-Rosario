@@ -185,7 +185,7 @@ const IGREJAS = {
     googleMaps: "https://maps.app.goo.gl/nbuQaZyYRrKayqa4A",
     horarios: [
       { id: "h4", nome: "Celebração Eucaristica", tipo: "Missa", data: proximaDataParaDia(0), horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Capela de Nossa Senhora da Conceição." },
-      { id: "h5", nome: "Confições Individuais", tipo: "Confições", data: proximaDataParaDia(6), horario: "09:00 às 11:00", recorrencia: "Semanal", descricao: "Confições individuais na secretaria paroquial." }
+      { id: "h5", nome: "Confições Individuais", tipo: "Confições", data: proximaDataParaDia(4), horario: "09:00 às 11:00", recorrencia: "Semanal", descricao: "Confições individuais na secretaria paroquial." }
     ],
     avisos: [],
     eventos: []
