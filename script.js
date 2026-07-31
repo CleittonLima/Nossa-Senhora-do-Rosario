@@ -118,8 +118,8 @@ const IGREJAS = {
   rosario: {
     nome: "Paróquia Nossa Senhora do Rosário",
     cor: "#a80d22",
-    endereco: "Rua Principal, 100 — Centro",
-    contato: "(00) 0000-0000",
+    endereco: "138, Praça Agamenon Magalhães, 102 - Nossa Sra. da Penha, Serra Talhada - PE, 56903-530",
+    contato: "",
     descricao: "Igreja matriz da paróquia.",
     logo: "",
     imagem: "assets/Imagens_Rosario/Rosário (1).webp",
@@ -148,18 +148,19 @@ const IGREJAS = {
     // "data" é opcional (AAAA-MM-DD); quando informada, o dia da semana
     // é calculado automaticamente e a data completa aparece na listagem.
     horarios: [
-      { id: "h1", nome: "Missa Dominical", tipo: "Missa", data: proximaDataParaDia(0), horario: "19:00", recorrencia: "Semanal", descricao: "Missa principal da paróquia." },
-      { id: "h3", nome: "Confissões", tipo: "Confissão", data: proximaDataParaDia(5), horario: "18:30", recorrencia: "Semanal", descricao: "Antes da missa." }
+      { id: "h1", nome: "Celebração Eucaristica", tipo: "Missa", data: proximaDataParaDia(0), horario: "06:30", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Matriz de Nossa Senhora do Rosário." },
+      { id: "h2", nome: "Adoração ao Santissimo Sacramento", tipo: "Adoração", data: proximaDataParaDia(4), horario: "18:00", recorrencia: "Semanal", descricao: "Adoração ao Santíssimo Sacramento na Matriz." },
+      { id: "h3", nome: "Celebração Eucaristica", tipo: "Missa", data: proximaDataParaDia(4), horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucarística da Matriz, encerrando com a Bênção do Santíssimo Sacramento." }
     ],
     // ADICIONE OU EDITE OS AVISOS DESTA IGREJA AQUI
     // Prioridade: "Normal", "Importante" ou "Urgente".
     avisos: [
-      { id: "a1", titulo: "Formação para Catequistas", texto: "Encontro de formação neste sábado, às 19h30, no salão paroquial.", prioridade: "Importante", data: proximosDias(3) },
-      { id: "a2", titulo: "Confissões canceladas nesta sexta", texto: "Não haverá confissões nesta sexta-feira devido a compromisso do pároco.", prioridade: "Urgente", data: proximosDias(1) }
+      // { id: "a1", titulo: "Formação para Catequistas", texto: "Encontro de formação neste sábado, às 19h30, no salão paroquial.", prioridade: "Importante", data: proximosDias(3) },
+      // { id: "a2", titulo: "Confissões canceladas nesta sexta", texto: "Não haverá confissões nesta sexta-feira devido a compromisso do pároco.", prioridade: "Urgente", data: proximosDias(1) }
     ],
     // ADICIONE OU EDITE OS EVENTOS DESTA IGREJA AQUI
     eventos: [
-      { id: "e1", nome: "Festa do Padroeiro", data: proximosDias(20), horario: "10:00", local: "Praça da Igreja Matriz", descricao: "Celebração e festa comunitária em honra ao padroeiro." }
+      // { id: "e1", nome: "Festa do Padroeiro", data: proximosDias(20), horario: "10:00", local: "Praça da Igreja Matriz", descricao: "Celebração e festa comunitária em honra ao padroeiro." }
     ]
   },
 
@@ -181,7 +182,8 @@ const IGREJAS = {
     whatsapp: "5587999733693",
     googleMaps: "https://maps.app.goo.gl/nbuQaZyYRrKayqa4A",
     horarios: [
-      { id: "h4", nome: "Catequese Infantil", tipo: "Catequese", data: proximaDataParaDia(6), horario: "09:00", recorrencia: "Semanal", descricao: "Turma de 8 a 11 anos." }
+      { id: "h4", nome: "Celebração Eucaristica", tipo: "Missa", data: proximaDataParaDia(0), horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Capela de Nossa Senhora da Conceição." },
+      { id: "h5", nome: "Confições Individuais", tipo: "Confições", data: proximaDataParaDia(6), horario: "09:00 às 11:00", recorrencia: "Semanal", descricao: "Confições individuais na secretaria paroquial." }
     ],
     avisos: [],
     eventos: []
@@ -190,8 +192,8 @@ const IGREJAS = {
   saoCristovao: {
     nome: "Capela de São Cristóvão",
     cor: "#15912a",
-    endereco: "Rua das Flores, 250 — Bairro São Cristóvão",
-    contato: "(00) 0000-0001",
+    endereco: "São Cristovao, Serra Talhada - PE, 56903-160",
+    contato: "",
     descricao: "Capela comunitária do bairro São Cristóvão.",
     logo: "",
     imagem: "assets/Imagens_SaoCristovao/São Cristóvão (1).webp",
@@ -205,19 +207,19 @@ const IGREJAS = {
     whatsapp: "",
     googleMaps: "https://maps.app.goo.gl/6VhxPcnGeSV1GU8W7",
     horarios: [
-      { id: "h2", nome: "Missa de Sábado", tipo: "Missa", data: proximaDataParaDia(6), horario: "18:00", recorrencia: "Semanal", descricao: "" }
+      { id: "h3", nome: "Celebração Eucaristica", tipo: "Missa", data: proximaDataParaDia(6), horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Capela de São Cristóvão." }
     ],
     avisos: [],
     eventos: [
-      { id: "e2", nome: "Retiro de Jovens", data: proximosDias(35), horario: "08:00", local: "Casa de Retiros", descricao: "Retiro espiritual para jovens da comunidade." }
+      // { id: "e2", nome: "Retiro de Jovens", data: proximosDias(35), horario: "08:00", local: "Casa de Retiros", descricao: "Retiro espiritual para jovens da comunidade." }
     ]
   },
 
   cruzDaMoca: {
     nome: "Capela Nossa Senhora do Carmo (Cruz da Moça)",
     cor: "#774c29",
-    endereco: "Rua Cruz da Moça, s/n",
-    contato: "(00) 0000-0003",
+    endereco: "R. Isidoro Conrado - São Cristovao, Serra Talhada - PE, 56903-090",
+    contato: "",
     descricao: "Capela comunitária da Cruz da Moça.",
     logo: "",
     imagem: "assets/Imagens_CruzDaMoca/Cruz da Moça.webp",
