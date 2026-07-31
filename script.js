@@ -119,7 +119,7 @@ const IGREJAS = {
     nome: "Paróquia Nossa Senhora do Rosário",
     cor: "#a80d22",
     endereco: "138, Praça Agamenon Magalhães, 102 - Nossa Sra. da Penha, Serra Talhada - PE, 56903-530",
-    contato: "",
+    contato: "(87) 9 8177-9811",
     descricao: "Igreja matriz da paróquia.",
     logo: "",
     imagem: "assets/Imagens_Rosario/Rosário (1).webp",
@@ -138,7 +138,7 @@ const IGREJAS = {
     ],
     // Número do WhatsApp com código do país e DDD (somente números).
     // Exemplo: 5587999999999 — deixe em branco ("") para ocultar o botão.
-    whatsapp: "",
+    whatsapp: "5587981779811",
     // Link do Google Maps apontando para a igreja (deixe em branco para
     // ocultar o botão). Basta abrir o local no Google Maps e copiar o
     // link de compartilhamento.
@@ -170,7 +170,7 @@ const IGREJAS = {
     nome: "Capela de Nossa Senhora da Conceição",
     cor: "#096d9b",
     endereco: "R. Antônio de Melo Lima, 416 - Nossa Sra. da Conceicao, Serra Talhada - PE, 56903-240",
-    contato: "(87) 3831-2814",
+    contato: "(87) 9 8177-9811",
     descricao: "Capela comunitária do bairro da Conceição.",
     logo: "",
     imagem: "assets/Imagens_Conceicao/Conceição (6).webp",
@@ -181,7 +181,7 @@ const IGREJAS = {
       "assets/Imagens_Conceicao/Conceição (2).webp",
       "assets/Imagens_Conceicao/Conceição (5).webp"
     ],
-    whatsapp: "5587999733693",
+    whatsapp: "5587981779811",
     googleMaps: "https://maps.app.goo.gl/nbuQaZyYRrKayqa4A",
     horarios: [
       { id: "h4", nome: "Celebração Eucaristica na Conceição", tipo: "Missa", data: proximaDataParaDia(0), horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Capela de Nossa Senhora da Conceição." },
