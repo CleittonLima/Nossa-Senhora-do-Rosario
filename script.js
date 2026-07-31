@@ -196,6 +196,7 @@ const IGREJAS = {
     logo: "",
     imagem: "assets/Imagens_SaoCristovao/São Cristóvão (1).webp",
     fotos: [
+      "assets/Imagens_SaoCristovao/São Cristóvão (5).webp",
       "assets/Imagens_SaoCristovao/São Cristóvão (1).webp",
       "assets/Imagens_SaoCristovao/São Cristóvão (2).webp",
       "assets/Imagens_SaoCristovao/São Cristóvão (3).webp",
