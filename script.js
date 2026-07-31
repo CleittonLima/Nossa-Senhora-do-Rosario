@@ -68,7 +68,7 @@ const REDE_SOCIAL_OFICIAL = {
   // Igrejas). Opcional — deixe "" para continuar mostrando o ícone 📱.
   // Tamanho recomendado: 1200 x 700 px (mesmo padrão da imagem das
   // igrejas). Exemplo: "assets/Logos/instagram-capa.jpg"
-  imagem: "assets/Logos/Instagram.jpg"
+  imagem: "assets/Logos/Instagram.webp"
 };
 
 // ========================================
@@ -78,9 +78,9 @@ const REDE_SOCIAL_OFICIAL = {
 // para trocá-la, veja os comentários lá. Aqui ela só é usada como
 // referência para o comportamento (ex.: fallback de imagem quebrada).
 // Tamanho recomendado: 900 x 900 px (quadrada, para não cortar mal
-// dentro do círculo). Formato: JPG, JPEG ou PNG.
+// dentro do círculo). Formato: JPG, JPEG ou webp.
 // ========================================
-const IMAGEM_PAROQUIA = "assets/Logos/Brasão Rosário.png";
+const IMAGEM_PAROQUIA = "assets/Logos/Brasão Rosário.webp";
 
 // ========================================
 // LOGO OFICIAL DA PARÓQUIA
@@ -88,7 +88,7 @@ const IMAGEM_PAROQUIA = "assets/Logos/Brasão Rosário.png";
 // rodapé) — veja os comentários no index.html.
 // Tamanho recomendado: 500 x 500 px.
 // ========================================
-const LOGO_PAROQUIA = "assets/Logos/Brasão Rosário.png";
+const LOGO_PAROQUIA = "assets/Logos/Brasão Rosário.webp";
 
 
 /* =====================================================================
@@ -122,19 +122,19 @@ const IGREJAS = {
     contato: "(00) 0000-0000",
     descricao: "Igreja matriz da paróquia.",
     logo: "",
-    imagem: "assets/Imagens_Rosario/Rosário (1).jpg",
+    imagem: "assets/Imagens_Rosario/Rosário (1).webp",
     // ADICIONE NOVAS FOTOS DA IGREJA NESTA LISTA
     fotos: [
-      "assets/Imagens_Rosario/Rosário (1).jpg",
-      "assets/Imagens_Rosario/Rosário (2).jpg",
-      "assets/Imagens_Rosario/Rosário (3).jpg",
-      "assets/Imagens_Rosario/Rosário (4).jpg",
-      "assets/Imagens_Rosario/Rosário (5).jpg",
-      "assets/Imagens_Rosario/Rosário (6).jpg",
-      "assets/Imagens_Rosario/Rosário (7).jpg",
-      "assets/Imagens_Rosario/Rosário (8).jpg",
-      "assets/Imagens_Rosario/Rosário (9).jpg",
-      "assets/Imagens_Rosario/Rosário (10).jpg"
+      "assets/Imagens_Rosario/Rosário (1).webp",
+      "assets/Imagens_Rosario/Rosário (2).webp",
+      "assets/Imagens_Rosario/Rosário (3).webp",
+      "assets/Imagens_Rosario/Rosário (4).webp",
+      "assets/Imagens_Rosario/Rosário (5).webp",
+      "assets/Imagens_Rosario/Rosário (6).webp",
+      "assets/Imagens_Rosario/Rosário (7).webp",
+      "assets/Imagens_Rosario/Rosário (8).webp",
+      "assets/Imagens_Rosario/Rosário (9).webp",
+      "assets/Imagens_Rosario/Rosário (10).webp"
     ],
     // Número do WhatsApp com código do país e DDD (somente números).
     // Exemplo: 5587999999999 — deixe em branco ("") para ocultar o botão.
@@ -170,13 +170,13 @@ const IGREJAS = {
     contato: "(87) 3831-2814",
     descricao: "Capela comunitária do bairro da Conceição.",
     logo: "",
-    imagem: "assets/Imagens_Conceicao/Conceição (6).jpg",
+    imagem: "assets/Imagens_Conceicao/Conceição (6).webp",
     fotos: [
-      "assets/Imagens_Conceicao/Conceição (6).jpg",
-      "assets/Imagens_Conceicao/Conceição (4).jpg",
-      "assets/Imagens_Conceicao/Conceição (1).jpg",
-      "assets/Imagens_Conceicao/Conceição (2).jpg",
-      "assets/Imagens_Conceicao/Conceição (5).jpg"
+      "assets/Imagens_Conceicao/Conceição (6).webp",
+      "assets/Imagens_Conceicao/Conceição (4).webp",
+      "assets/Imagens_Conceicao/Conceição (1).webp",
+      "assets/Imagens_Conceicao/Conceição (2).webp",
+      "assets/Imagens_Conceicao/Conceição (5).webp"
     ],
     whatsapp: "5587999733693",
     googleMaps: "https://maps.app.goo.gl/nbuQaZyYRrKayqa4A",
@@ -194,12 +194,12 @@ const IGREJAS = {
     contato: "(00) 0000-0001",
     descricao: "Capela comunitária do bairro São Cristóvão.",
     logo: "",
-    imagem: "assets/Imagens_SaoCristovao/São Cristóvão (1).jpg",
+    imagem: "assets/Imagens_SaoCristovao/São Cristóvão (1).webp",
     fotos: [
-      "assets/Imagens_SaoCristovao/São Cristóvão (1).jpg",
-      "assets/Imagens_SaoCristovao/São Cristóvão (2).jpg",
-      "assets/Imagens_SaoCristovao/São Cristóvão (3).jpg",
-      "assets/Imagens_SaoCristovao/São Cristóvão (4).jpg"
+      "assets/Imagens_SaoCristovao/São Cristóvão (1).webp",
+      "assets/Imagens_SaoCristovao/São Cristóvão (2).webp",
+      "assets/Imagens_SaoCristovao/São Cristóvão (3).webp",
+      "assets/Imagens_SaoCristovao/São Cristóvão (4).webp"
     ],
     whatsapp: "",
     googleMaps: "https://maps.app.goo.gl/6VhxPcnGeSV1GU8W7",
@@ -219,9 +219,9 @@ const IGREJAS = {
     contato: "(00) 0000-0003",
     descricao: "Capela comunitária da Cruz da Moça.",
     logo: "",
-    imagem: "assets/Imagens_CruzDaMoca/Moça (1).jpg",
+    imagem: "assets/Imagens_CruzDaMoca/Cruz da Moça.webp",
     fotos: [
-      "assets/Imagens_CruzDaMoca/Moça (1).jpg"
+      "assets/Imagens_CruzDaMoca/Cruz da Moça.webp"
     ],
     whatsapp: "",
     googleMaps: "https://maps.app.goo.gl/zBmvRMC3W1p9vEPo7",
@@ -259,7 +259,7 @@ const DADOS_PIX = {
   // QR CODE DO PIX
   // Para trocar o QR Code, substitua o arquivo:
   // assets/Oferta/Pixteste.png (ajuste o caminho abaixo se o nome mudar)
-  qrcode: "assets/Oferta/Pixteste.png",
+  qrcode: "assets/Oferta/Pixteste.webp",
   informacoes: "Sua oferta ajuda a manter as obras sociais e a estrutura da paróquia."
 };
 
@@ -272,20 +272,20 @@ const DADOS_PIX = {
    Para adicionar um novo avatar, copie uma linha e ajuste id/nome/imagem.
    ===================================================================== */
 const AVATARES = [
-  { id: "jesus-cristo", nome: "Jesus Cristo", imagem: "assets/Avatares/Jesus.png" },
-  { id: "rosario", nome: "Nossa Senhora do Rosário", imagem: "assets/Avatares/Nossa Senhora do Rosário.png" },
-  { id: "conceicao", nome: "Nossa Senhora da Conceição", imagem: "assets/Avatares/Nossa Senhora da Conceição.png" },
-  { id: "carmo", nome: "Nossa Senhora do Carmo", imagem: "assets/Avatares/Nossa Senhora do Carmo.png" },
-  { id: "fatima", nome: "Nossa Senhora de Fátima", imagem: "assets/Avatares/Nossa Senhora de Fátima.png" },
-  { id: "gracas", nome: "Nossa Senhora das Graças", imagem: "assets/Avatares/Nossa Senhora das Graças.png" },
-  { id: "aparecida", nome: "Nossa Senhora Aparecida", imagem: "assets/Avatares/Nossa Senhora Aparecida.png" },
-  { id: "sao-cristovao", nome: "São Cristóvão", imagem: "assets/Avatares/São Cristóvão.png" },
-  { id: "sao-jose", nome: "São José", imagem: "assets/Avatares/São José.png" },
-  { id: "santa-luzia", nome: "Santa Luzia", imagem: "assets/Avatares/Santa Luzia.png" },
-  { id: "santa-terezinha", nome: "Santa Terezinha", imagem: "assets/Avatares/Santa Terezinha.png" },
-  { id: "santo-antonio", nome: "Santo Antônio", imagem: "assets/Avatares/Santo Antônio.png" },
-  { id: "acutis", nome: "São Carlo Acutis", imagem: "assets/Avatares/São Carlo Acutis.png" },
-  { id: "fracisco-assis", nome: "São Francisco de Assis", imagem: "assets/Avatares/São Francisco de Assis.png" }
+  { id: "jesus-cristo", nome: "Jesus Cristo", imagem: "assets/Avatares/Jesus.webp" },
+  { id: "rosario", nome: "Nossa Senhora do Rosário", imagem: "assets/Avatares/Nossa Senhora do Rosário.webp" },
+  { id: "conceicao", nome: "Nossa Senhora da Conceição", imagem: "assets/Avatares/Nossa Senhora da Conceição.webp" },
+  { id: "carmo", nome: "Nossa Senhora do Carmo", imagem: "assets/Avatares/Nossa Senhora do Carmo.webp" },
+  { id: "fatima", nome: "Nossa Senhora de Fátima", imagem: "assets/Avatares/Nossa Senhora de Fátima.webp" },
+  { id: "gracas", nome: "Nossa Senhora das Graças", imagem: "assets/Avatares/Nossa Senhora das Graças.webp" },
+  { id: "aparecida", nome: "Nossa Senhora Aparecida", imagem: "assets/Avatares/Nossa Senhora Aparecida.webp" },
+  { id: "sao-cristovao", nome: "São Cristóvão", imagem: "assets/Avatares/São Cristóvão.webp" },
+  { id: "sao-jose", nome: "São José", imagem: "assets/Avatares/São José.webp" },
+  { id: "santa-luzia", nome: "Santa Luzia", imagem: "assets/Avatares/Santa Luzia.webp" },
+  { id: "santa-terezinha", nome: "Santa Terezinha", imagem: "assets/Avatares/Santa Terezinha.webp" },
+  { id: "santo-antonio", nome: "Santo Antônio", imagem: "assets/Avatares/Santo Antônio.webp" },
+  { id: "acutis", nome: "São Carlo Acutis", imagem: "assets/Avatares/São Carlo Acutis.webp" },
+  { id: "fracisco-assis", nome: "São Francisco de Assis", imagem: "assets/Avatares/São Francisco de Assis.webp" }
 ];
 function obterAvatar(id){ return AVATARES.find(a => a.id === id) || null; }
 
