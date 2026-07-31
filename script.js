@@ -148,9 +148,9 @@ const IGREJAS = {
     // "data" é opcional (AAAA-MM-DD); quando informada, o dia da semana
     // é calculado automaticamente e a data completa aparece na listagem.
     horarios: [
-      { id: "h1", nome: "Celebração Eucaristica", tipo: "Missa", data: proximaDataParaDia(0), horario: "06:30", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Matriz de Nossa Senhora do Rosário." },
+      { id: "h1", nome: "Celebração Eucaristica na Matriz", tipo: "Missa", data: proximaDataParaDia(0), horario: "06:30", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Matriz de Nossa Senhora do Rosário." },
       { id: "h2", nome: "Adoração ao Santissimo Sacramento", tipo: "Adoração", data: proximaDataParaDia(4), horario: "18:00", recorrencia: "Semanal", descricao: "Adoração ao Santíssimo Sacramento na Matriz." },
-      { id: "h3", nome: "Celebração Eucaristica", tipo: "Missa", data: proximaDataParaDia(4), horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucarística da Matriz, encerrando com a Bênção do Santíssimo Sacramento." }
+      { id: "h3", nome: "Celebração Eucaristica na Matriz", tipo: "Missa", data: proximaDataParaDia(4), horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucarística da Matriz, encerrando com a Bênção do Santíssimo Sacramento." }
     ],
     // ADICIONE OU EDITE OS AVISOS DESTA IGREJA AQUI
     // Prioridade: "Normal", "Importante" ou "Urgente".
@@ -184,7 +184,7 @@ const IGREJAS = {
     whatsapp: "5587999733693",
     googleMaps: "https://maps.app.goo.gl/nbuQaZyYRrKayqa4A",
     horarios: [
-      { id: "h4", nome: "Celebração Eucaristica", tipo: "Missa", data: proximaDataParaDia(0), horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Capela de Nossa Senhora da Conceição." },
+      { id: "h4", nome: "Celebração Eucaristica na Conceição", tipo: "Missa", data: proximaDataParaDia(0), horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Capela de Nossa Senhora da Conceição." },
       { id: "h5", nome: "Confições Individuais", tipo: "Confições", data: proximaDataParaDia(4), horario: "09:00 às 11:00", recorrencia: "Semanal", descricao: "Confições individuais na secretaria paroquial." }
     ],
     avisos: [],
@@ -209,7 +209,7 @@ const IGREJAS = {
     whatsapp: "",
     googleMaps: "https://maps.app.goo.gl/6VhxPcnGeSV1GU8W7",
     horarios: [
-      { id: "h3", nome: "Celebração Eucaristica", tipo: "Missa", data: proximaDataParaDia(6), horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Capela de São Cristóvão." }
+      { id: "h3", nome: "Celebração Eucaristica na São Cristóvão", tipo: "Missa", data: proximaDataParaDia(6), horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Capela de São Cristóvão." }
     ],
     avisos: [],
     eventos: [
