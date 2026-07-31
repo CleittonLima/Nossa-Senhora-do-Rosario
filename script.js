@@ -52,7 +52,7 @@ const NOME_DESENVOLVEDOR = "Cleiton Lima";
 const VERSAO_APP = "1.0.8";
 // Telefone e endereço gerais da paróquia (exibidos na tela Sobre)
 const TELEFONE_PAROQUIA = "(87) 3831-2814";
-const ENDERECO_PAROQUIA = "Rua Principal, 100 — Centro";
+const ENDERECO_PAROQUIA = "138, Praça Agamenon Magalhães, 102 - Nossa Sra. da Penha, Serra Talhada - PE, 56903-530";
 
 // FRASE OU VERSÍCULO EXIBIDO NA ÁREA SUPERIOR (rodapé do aplicativo)
 // Troque o texto abaixo por um versículo, uma saudação ou outra frase.
@@ -155,9 +155,9 @@ const IGREJAS = {
     // ADICIONE OU EDITE OS AVISOS DESTA IGREJA AQUI
     // Prioridade: "Normal", "Importante" ou "Urgente".
     avisos: [
-    /*{ id: "a1", titulo: "Formação para Catequistas", texto: "Encontro de formação neste sábado, às 19h30, no salão paroquial.", prioridade: "Importante", data: proximosDias(3) },
-      { id: "a2", titulo: "Confissões canceladas nesta sexta", texto: "Não haverá confissões nesta sexta-feira devido a compromisso do pároco.", prioridade: "Urgente", data: proximosDias(1) }
-    */
+      { id: "a1", titulo: "Celebração Eucaristica", texto: "Celebração Eucaristica no Riacho do Bode", prioridade: "Importante", data: proximosDias(5) },
+      { id: "a2", titulo: "Celebração Eucaristica", texto: "Celebração Eucaristica nas Granjas", prioridade: "Importante", data: proximosDias(3) }
+    
     ],
     // ADICIONE OU EDITE OS EVENTOS DESTA IGREJA AQUI
     eventos: [
