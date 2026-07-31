@@ -254,6 +254,15 @@ textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible{
   transition:transform .12s ease !important;
 }
 
+/* Cards de lista (Horários, Avisos, Eventos, Igrejas): crescem um
+   pouco ao serem tocados, em vez de encolher — sem depender de rolagem
+   nem de :hover, e sem risco de ficar grande demais ou sair da tela. */
+.efeito-crescer{
+  transform:scale(1.035) !important;
+  transition:transform .15s ease !important;
+  box-shadow:var(--sombra-media) !important;
+}
+
 /* Efeito "ripple" (onda) discreto ao tocar/clicar em botões, cards e
    demais elementos interativos — criado dinamicamente pelo script.js. */
 .ripple{

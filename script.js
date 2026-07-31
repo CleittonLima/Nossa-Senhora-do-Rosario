@@ -49,7 +49,7 @@ const DESCRICAO_PAROQUIA = "";
 // Nome do desenvolvedor do site
 const NOME_DESENVOLVEDOR = "Cleiton Lima";
 // Versão do site/aplicativo
-const VERSAO_APP = "1.0.0";
+const VERSAO_APP = "1.0.8";
 // Telefone e endereço gerais da paróquia (exibidos na tela Sobre)
 const TELEFONE_PAROQUIA = "(87) 3831-2814";
 const ENDERECO_PAROQUIA = "Rua Principal, 100 — Centro";
@@ -475,7 +475,6 @@ function irParaView(view){
   if(view === "igrejas") renderizarIgrejas();
   if(view === "configuracoes") renderizarConfiguracoes();
   window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
-  atualizarZoomRolagem();
 }
 
 /* ---- Escalonamento da entrada dos cards ----
@@ -489,43 +488,6 @@ function escalonarEntradaCards(seletor, passoSegundos = 0.12, atrasoMaximoItens 
   document.querySelectorAll(seletor).forEach((el, indice) => {
     el.style.setProperty("--atraso-entrada", (Math.min(indice, atrasoMaximoItens) * passoSegundos) + "s");
   });
-}
-
-/* ---- Zoom suave ao rolar (Horários, Avisos, Eventos, Igrejas) ----
-   O card mais próximo do topo da lista fica levemente maior; os demais
-   ficam um pouco menores conforme se afastam — dá uma sensação de
-   profundidade sutil ao rolar a página. Não é intenso de propósito. */
-const ZOOM_ROLAGEM_FOCO_PX = 190;   // ponto de referência (px do topo da tela)
-const ZOOM_ROLAGEM_ALCANCE_PX = 260; // distância até o efeito "zerar"
-const ZOOM_ROLAGEM_MIN = 0.95;
-const ZOOM_ROLAGEM_MAX = 1.04;
-
-function atualizarZoomRolagem(){
-  const cards = document.querySelectorAll(".view:not([hidden]) .lista-cards .item-card");
-  if(!cards.length) return;
-  const prefs = obterPreferencias();
-  const desativado = window.innerWidth >= 960
-    || prefs.reduzirAnimacoes
-    || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if(desativado){
-    cards.forEach(card => { card.style.transform = ""; });
-    return;
-  }
-  cards.forEach(card => {
-    const rect = card.getBoundingClientRect();
-    const centro = rect.top + rect.height / 2;
-    const distancia = Math.min(Math.abs(centro - ZOOM_ROLAGEM_FOCO_PX), ZOOM_ROLAGEM_ALCANCE_PX);
-    const proximidade = 1 - (distancia / ZOOM_ROLAGEM_ALCANCE_PX);
-    const escala = ZOOM_ROLAGEM_MIN + proximidade * (ZOOM_ROLAGEM_MAX - ZOOM_ROLAGEM_MIN);
-    card.style.transform = `scale(${escala.toFixed(3)})`;
-  });
-}
-
-let zoomRolagemAgendado = false;
-function agendarZoomRolagem(){
-  if(zoomRolagemAgendado) return;
-  zoomRolagemAgendado = true;
-  requestAnimationFrame(() => { atualizarZoomRolagem(); zoomRolagemAgendado = false; });
 }
 
 function renderizarNavegacao(){
@@ -927,20 +889,24 @@ function mostrarToast(mensagem, tipo){
    celulares o efeito de :hover não existe.
    ===================================================================== */
 const SELETOR_TOQUE = ".botao, .item-card, .atalho, .nav-item, .filtro-chip, .galeria-seta, .galeria-ponto, .igreja-card, .avatar-opcao";
+// Dentro do seletor acima, os cards de lista (Horários, Avisos, Eventos,
+// Igrejas) usam um efeito diferente: crescem um pouco ao serem tocados,
+// em vez de encolher como botões e outros elementos.
+const SELETOR_TOQUE_CRESCE = ".lista-cards .item-card";
 
 function ligarAnimacaoDeToque(){
   const ativar = (ev) => {
     const alvo = ev.target.closest(SELETOR_TOQUE);
     if(!alvo) return;
-    alvo.classList.add("efeito-clique");
+    alvo.classList.add(alvo.closest(SELETOR_TOQUE_CRESCE) ? "efeito-crescer" : "efeito-clique");
     criarRipple(alvo, ev);
   };
   const desativar = (ev) => {
     const alvo = ev.target.closest(SELETOR_TOQUE);
-    if(alvo) alvo.classList.remove("efeito-clique");
+    if(alvo) alvo.classList.remove("efeito-clique", "efeito-crescer");
     // Também limpa qualquer elemento que tenha ficado "preso" pressionado
-    document.querySelectorAll(".efeito-clique").forEach(el => {
-      if(el !== alvo) el.classList.remove("efeito-clique");
+    document.querySelectorAll(".efeito-clique, .efeito-crescer").forEach(el => {
+      if(el !== alvo) el.classList.remove("efeito-clique", "efeito-crescer");
     });
   };
   document.body.addEventListener("pointerdown", ativar);
@@ -978,9 +944,6 @@ function criarRipple(alvo, ev){
    13. EVENTOS DE INTERFACE
    ===================================================================== */
 function ligarEventosGlobais(){
-  window.addEventListener("scroll", agendarZoomRolagem, { passive: true });
-  window.addEventListener("resize", agendarZoomRolagem);
-
   document.body.addEventListener("click", (ev) => {
     const alvo = ev.target.closest("[data-ir-para]");
     if(alvo) irParaView(alvo.dataset.irPara);
@@ -1030,7 +993,6 @@ function ligarEventosGlobais(){
   document.getElementById("config-reduzir-animacoes").addEventListener("change", (ev) => {
     const p = obterPreferencias(); p.reduzirAnimacoes = ev.target.checked;
     salvarPreferencias(p);
-    atualizarZoomRolagem();
   });
 
   // Dados locais (nome, avatar e preferências deste navegador). Ao
