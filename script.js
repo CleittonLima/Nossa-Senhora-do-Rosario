@@ -155,12 +155,14 @@ const IGREJAS = {
     // ADICIONE OU EDITE OS AVISOS DESTA IGREJA AQUI
     // Prioridade: "Normal", "Importante" ou "Urgente".
     avisos: [
-      // { id: "a1", titulo: "Formação para Catequistas", texto: "Encontro de formação neste sábado, às 19h30, no salão paroquial.", prioridade: "Importante", data: proximosDias(3) },
-      // { id: "a2", titulo: "Confissões canceladas nesta sexta", texto: "Não haverá confissões nesta sexta-feira devido a compromisso do pároco.", prioridade: "Urgente", data: proximosDias(1) }
+    /*{ id: "a1", titulo: "Formação para Catequistas", texto: "Encontro de formação neste sábado, às 19h30, no salão paroquial.", prioridade: "Importante", data: proximosDias(3) },
+      { id: "a2", titulo: "Confissões canceladas nesta sexta", texto: "Não haverá confissões nesta sexta-feira devido a compromisso do pároco.", prioridade: "Urgente", data: proximosDias(1) }
+    */
     ],
     // ADICIONE OU EDITE OS EVENTOS DESTA IGREJA AQUI
     eventos: [
-      // { id: "e1", nome: "Festa do Padroeiro", data: proximosDias(20), horario: "10:00", local: "Praça da Igreja Matriz", descricao: "Celebração e festa comunitária em honra ao padroeiro." }
+    /*{ id: "e1", nome: "Festa do Padroeiro", data: proximosDias(20), horario: "10:00", local: "Praça da Igreja Matriz", descricao: "Celebração e festa comunitária em honra ao padroeiro." }
+    */
     ]
   },
 
@@ -211,7 +213,8 @@ const IGREJAS = {
     ],
     avisos: [],
     eventos: [
-      // { id: "e2", nome: "Retiro de Jovens", data: proximosDias(35), horario: "08:00", local: "Casa de Retiros", descricao: "Retiro espiritual para jovens da comunidade." }
+      /*{ id: "e2", nome: "Retiro de Jovens", data: proximosDias(35), horario: "08:00", local: "Casa de Retiros", descricao: "Retiro espiritual para jovens da comunidade." }
+      */
     ]
   },
 
