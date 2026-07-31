@@ -278,12 +278,14 @@ const AVATARES = [
   { id: "carmo", nome: "Nossa Senhora do Carmo", imagem: "assets/Avatares/Nossa Senhora do Carmo.png" },
   { id: "fatima", nome: "Nossa Senhora de Fátima", imagem: "assets/Avatares/Nossa Senhora de Fátima.png" },
   { id: "gracas", nome: "Nossa Senhora das Graças", imagem: "assets/Avatares/Nossa Senhora das Graças.png" },
+  { id: "aparecida", nome: "Nossa Senhora Aparecida", imagem: "assets/Avatares/Nossa Senhora Aparecida.png" },
   { id: "sao-cristovao", nome: "São Cristóvão", imagem: "assets/Avatares/São Cristóvão.png" },
   { id: "sao-jose", nome: "São José", imagem: "assets/Avatares/São José.png" },
   { id: "santa-luzia", nome: "Santa Luzia", imagem: "assets/Avatares/Santa Luzia.png" },
   { id: "santa-terezinha", nome: "Santa Terezinha", imagem: "assets/Avatares/Santa Terezinha.png" },
   { id: "santo-antonio", nome: "Santo Antônio", imagem: "assets/Avatares/Santo Antônio.png" },
-  { id: "acutis", nome: "São Carlo Acutis", imagem: "assets/Avatares/São Carlo Acutis.png" }
+  { id: "acutis", nome: "São Carlo Acutis", imagem: "assets/Avatares/São Carlo Acutis.png" },
+  { id: "fracisco-assis", nome: "São Francisco de Assis", imagem: "assets/Avatares/São Francisco de Assis.png" }
 ];
 function obterAvatar(id){ return AVATARES.find(a => a.id === id) || null; }
 
