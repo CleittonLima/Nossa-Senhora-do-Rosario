@@ -161,8 +161,11 @@ const IGREJAS = {
     ],
     // ADICIONE OU EDITE OS EVENTOS DESTA IGREJA AQUI
     eventos: [
-    /*{ id: "e1", nome: "Festa do Padroeiro", data: proximosDias(20), horario: "10:00", local: "Praça da Igreja Matriz", descricao: "Celebração e festa comunitária em honra ao padroeiro." }
-    */
+    { id: "e1", nome: "Novena do Dizimo", data: proximosDias(0), horario: "19:00", local: "Praça São Cristóvão", descricao: "3° dia da Novena do Dizimo" },
+    { id: "e2", nome: "Novena do Dizimo", data: proximosDias(2), horario: "19:00", local: "Casa de Iellen e Matheus (Caxixola)", descricao: "4° dia da Novena do Dizimo" },
+    { id: "e3", nome: "Novena do Dizimo", data: proximosDias(3), horario: "19:00", local: "A definir", descricao: "5° dia da Novena do Dizimo" },
+    { id: "e4", nome: "Novena do Dizimo", data: proximosDias(4), horario: "19:00", local: "Salão Paroquial", descricao: "6° dia da Novena do Dizimo" },
+    { id: "e5", nome: "Novena do Dizimo", data: proximosDias(6), horario: "19:00", local: "A definir", descricao: "7° dia da Novena do Dizimo" }
     ]
   },
 

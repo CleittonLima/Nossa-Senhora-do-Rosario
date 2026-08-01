@@ -171,15 +171,15 @@
 }
 
 .tema-joana{
-  --cor-cabecalho:#3E5C8A;
-  --cor-cabecalho-escura:#2C4366;
-  --cor-background:#F3F6FB;
-  --cor-card:#FEFFFF;
-  --cor-fundo-suave:#DCE6F3;
-  --cor-botoes:#3E5C8A;
-  --cor-botoes-hover:#5674A2;
-  --cor-destaque:#3E5C8A;
-  --cor-aba-ativa:#3E5C8A;
+  --cor-cabecalho:#6E7681;
+  --cor-cabecalho-escura:#4F5660;
+  --cor-background:#F4F6F8;
+  --cor-card:#FFFFFF;
+  --cor-fundo-suave:#DEE3E8;
+  --cor-botoes:#6E7681;
+  --cor-botoes-hover:#858D97;
+  --cor-destaque:#6E7681;
+  --cor-aba-ativa:#6E7681;
 }
 
 /* =====================================================
