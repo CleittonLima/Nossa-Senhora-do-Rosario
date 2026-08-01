@@ -1,0 +1,235 @@
+/* =====================================================================
+   PARÓQUIA NOSSA SENHORA DO ROSÁRIO — themes.css
+   Este arquivo contém APENAS os temas de cor do sistema — nenhum outro
+   estilo. Cada tema só redefine variáveis CSS (as mesmas usadas em
+   style.css); o restante do CSS não é tocado.
+
+   Variáveis que cada tema pode definir:
+     --cor-cabecalho          → cor da barra superior
+     --cor-cabecalho-escura   → tom mais escuro (gradiente das telas
+                                 de boas-vindas)
+     --cor-background         → cor de fundo do site
+     --cor-card               → cor de fundo dos cards
+     --cor-fundo-suave        → cor de fundo suave (chips, áreas internas)
+     --cor-botoes             → cor principal dos botões
+     --cor-botoes-hover       → cor dos botões ao tocar/passar o mouse
+     --cor-destaque           → cor de destaque (filtros, indicadores)
+     --cor-aba-ativa          → cor de fundo da aba ativa (navegação)
+
+   Este arquivo é carregado DEPOIS de style.css no index.html — por
+   isso, quando um tema está aplicado (classe no <html>), ele vence os
+   valores padrão de :root sem precisar de nada especial.
+   ===================================================================== */
+
+
+/* =====================================================
+   TEMA PADRÃO
+   ===================================================== */
+/* Intencionalmente vazio: o Tema Padrão é a própria paleta definida em
+   style.css (:root) — escolher este tema apenas remove qualquer outro
+   tema aplicado, sem sobrescrever nenhuma variável. */
+.tema-padrao{
+}
+
+
+/* =====================================================
+   TEMAS MARIANOS
+   ===================================================== */
+.tema-rosario{
+  --cor-cabecalho:#B22234;
+  --cor-cabecalho-escura:#861926;
+  --cor-background:#FCF3F4;
+  --cor-card:#FFFDFD;
+  --cor-fundo-suave:#F4DADF;
+  --cor-botoes:#B22234;
+  --cor-botoes-hover:#C63B4C;
+  --cor-destaque:#B22234;
+  --cor-aba-ativa:#B22234;
+}
+
+.tema-conceicao{
+  --cor-cabecalho:#2F8CCF;
+  --cor-cabecalho-escura:#22699B;
+  --cor-background:#F2F9FD;
+  --cor-card:#FEFFFF;
+  --cor-fundo-suave:#DCEFF9;
+  --cor-botoes:#2F8CCF;
+  --cor-botoes-hover:#4BA2DE;
+  --cor-destaque:#2F8CCF;
+  --cor-aba-ativa:#2F8CCF;
+}
+
+.tema-carmo{
+  --cor-cabecalho:#6B4423;
+  --cor-cabecalho-escura:#4E3119;
+  --cor-background:#FBF4EC;
+  --cor-card:#FFFDFB;
+  --cor-fundo-suave:#F1E4D3;
+  --cor-botoes:#6B4423;
+  --cor-botoes-hover:#85572E;
+  --cor-destaque:#6B4423;
+  --cor-aba-ativa:#6B4423;
+}
+
+.tema-gracas{
+  --cor-cabecalho:#1F4E8B;
+  --cor-cabecalho-escura:#163A66;
+  --cor-background:#EEF3FB;
+  --cor-card:#FDFEFF;
+  --cor-fundo-suave:#DCE7F5;
+  --cor-botoes:#1F4E8B;
+  --cor-botoes-hover:#2C63AC;
+  --cor-destaque:#1F4E8B;
+  --cor-aba-ativa:#1F4E8B;
+}
+
+.tema-fatima{
+  --cor-cabecalho:#C79A2B;
+  --cor-cabecalho-escura:#A87E17;
+  --cor-background:#FCF8EE;
+  --cor-card:#FFFDF9;
+  --cor-fundo-suave:#F6E9C9;
+  --cor-botoes:#C79A2B;
+  --cor-botoes-hover:#D8AD42;
+  --cor-destaque:#C79A2B;
+  --cor-aba-ativa:#C79A2B;
+}
+
+
+/* =====================================================
+   TEMAS DOS SANTOS
+   ===================================================== */
+.tema-carlo{
+  --cor-cabecalho:#a81e1e;
+  --cor-cabecalho-escura:#791616;
+  --cor-background:#FDF1F1;
+  --cor-card:#FFFDFD;
+  --cor-fundo-suave:#F3D6D6;
+  --cor-botoes:#a81e1e;
+  --cor-botoes-hover:#BF3535;
+  --cor-destaque:#a81e1e;
+  --cor-aba-ativa:#a81e1e;
+}
+
+.tema-francisco{
+  --cor-cabecalho:#8B5E3C;
+  --cor-cabecalho-escura:#68452C;
+  --cor-background:#FBF6F2;
+  --cor-card:#FFFDFC;
+  --cor-fundo-suave:#EFDCCF;
+  --cor-botoes:#8B5E3C;
+  --cor-botoes-hover:#A16E48;
+  --cor-destaque:#8B5E3C;
+  --cor-aba-ativa:#8B5E3C;
+}
+
+.tema-jose{
+  --cor-cabecalho:#4F6D3A;
+  --cor-cabecalho-escura:#395128;
+  --cor-background:#F2F7EF;
+  --cor-card:#FCFEFB;
+  --cor-fundo-suave:#DDE9D6;
+  --cor-botoes:#4F6D3A;
+  --cor-botoes-hover:#62884A;
+  --cor-destaque:#4F6D3A;
+  --cor-aba-ativa:#4F6D3A;
+}
+
+.tema-terezinha{
+  --cor-cabecalho:#C96C8D;
+  --cor-cabecalho-escura:#A64F70;
+  --cor-background:#FDF5F8;
+  --cor-card:#FFFDFE;
+  --cor-fundo-suave:#F5DFE7;
+  --cor-botoes:#C96C8D;
+  --cor-botoes-hover:#D884A1;
+  --cor-destaque:#C96C8D;
+  --cor-aba-ativa:#C96C8D;
+}
+
+.tema-luzia{
+  --cor-cabecalho:#2D8A66;
+  --cor-cabecalho-escura:#21664B;
+  --cor-background:#F2FAF7;
+  --cor-card:#FEFFFE;
+  --cor-fundo-suave:#D9EFE7;
+  --cor-botoes:#2D8A66;
+  --cor-botoes-hover:#43A17C;
+  --cor-destaque:#2D8A66;
+  --cor-aba-ativa:#2D8A66;
+}
+
+/* =====================================================
+   TEMAS LITÚRGICOS
+   ===================================================== */
+.tema-advento{
+  --cor-cabecalho:#4B3475;
+  --cor-cabecalho-escura:#372655;
+  --cor-background:#F2EFF8;
+  --cor-card:#FDFCFF;
+  --cor-fundo-suave:#E2DAF0;
+  --cor-botoes:#4B3475;
+  --cor-botoes-hover:#614592;
+  --cor-destaque:#4B3475;
+  --cor-aba-ativa:#4B3475;
+}
+
+.tema-natal{
+  --cor-cabecalho:#A31E22;
+  --cor-cabecalho-escura:#791518;
+  --cor-background:#FDF3E7;
+  --cor-card:#FFFDF8;
+  --cor-fundo-suave:#F6E3C9;
+  --cor-botoes:#A31E22;
+  --cor-botoes-hover:#C4292E;
+  --cor-destaque:#B98B2E;
+  --cor-aba-ativa:#A31E22;
+}
+
+.tema-tempocomum{
+  --cor-cabecalho:#2E6B47;
+  --cor-cabecalho-escura:#204E34;
+  --cor-background:#EEF6F0;
+  --cor-card:#FCFFFD;
+  --cor-fundo-suave:#DCEFE1;
+  --cor-botoes:#2E6B47;
+  --cor-botoes-hover:#3D8A5D;
+  --cor-destaque:#2E6B47;
+  --cor-aba-ativa:#2E6B47;
+}
+
+.tema-quaresma{
+  --cor-cabecalho:#5A4A6B;
+  --cor-cabecalho-escura:#41364E;
+  --cor-background:#F3F0F5;
+  --cor-card:#FDFCFE;
+  --cor-fundo-suave:#E4DCE9;
+  --cor-botoes:#5A4A6B;
+  --cor-botoes-hover:#71608A;
+  --cor-destaque:#5A4A6B;
+  --cor-aba-ativa:#5A4A6B;
+}
+
+.tema-pascoa{
+  --cor-cabecalho:#A67C1E;
+  --cor-cabecalho-escura:#7A5B16;
+  --cor-background:#FFFBF0;
+  --cor-card:#FFFEFA;
+  --cor-fundo-suave:#FBF0D6;
+  --cor-botoes:#A67C1E;
+  --cor-botoes-hover:#C29632;
+  --cor-destaque:#A67C1E;
+  --cor-aba-ativa:#A67C1E;
+}
+
+.tema-pentecostes{
+  --cor-cabecalho:#B23A2E;
+  --cor-cabecalho-escura:#852B22;
+  --cor-background:#FDF1EE;
+  --cor-card:#FFFDFC;
+  --cor-fundo-suave:#F7DED9;
+  --cor-botoes:#B23A2E;
+  --cor-botoes-hover:#CC4B3D;
+  --cor-destaque:#B23A2E;
+  --cor-aba-ativa:#B23A2E;
+}

@@ -93,54 +93,59 @@
   --cor-aba-ativa:#7A1F2B;
 }
 
-/* TEMA ESCURO */
+/* TEMA ESCURO
+   Usa !important nas variáveis para que o modo escuro sempre tenha
+   prioridade sobre um tema decorativo (marianos/santos/litúrgicos)
+   escolhido em Configurações — evita combinações de cor ilegíveis. */
 [data-tema="escuro"]{
-  --cor-cabecalho:#C96B78;
-  --cor-cabecalho-escura:#E38893;
-  --cor-background:#1C1815;
-  --cor-card:#262019;
-  --cor-fundo-suave:#2E271F;
-  --cor-borda:#3B332A;
-  --cor-texto:#F2EAE0;
-  --cor-texto-secundario:#B8AB9C;
-  --cor-botoes:#C96B78;
-  --cor-botoes-hover:#D98793;
-  --cor-destaque:#C96B78;
-  --cor-dourado:#D8AE5C;
-  --cor-aba-ativa:#C96B78;
+  --cor-cabecalho:#C96B78 !important;
+  --cor-cabecalho-escura:#E38893 !important;
+  --cor-background:#1C1815 !important;
+  --cor-card:#262019 !important;
+  --cor-fundo-suave:#2E271F !important;
+  --cor-borda:#3B332A !important;
+  --cor-texto:#F2EAE0 !important;
+  --cor-texto-secundario:#B8AB9C !important;
+  --cor-botoes:#C96B78 !important;
+  --cor-botoes-hover:#D98793 !important;
+  --cor-destaque:#C96B78 !important;
+  --cor-dourado:#D8AE5C !important;
+  --cor-aba-ativa:#C96B78 !important;
 }
 
-/* ALTO CONTRASTE */
+/* ALTO CONTRASTE — também com !important (prioridade de acessibilidade
+   sobre qualquer tema decorativo escolhido). */
 [data-alto-contraste="true"]{
-  --cor-cabecalho:#FFD54A;
-  --cor-cabecalho-escura:#FFD54A;
-  --cor-background:#000000;
-  --cor-card:#000000;
-  --cor-fundo-suave:#101010;
-  --cor-borda:#FFFFFF;
-  --cor-texto:#FFFFFF;
-  --cor-texto-secundario:#EDEDED;
-  --cor-botoes:#FFD54A;
-  --cor-botoes-hover:#FFE28A;
-  --cor-destaque:#FFD54A;
-  --cor-dourado:#FFD54A;
-  --cor-aba-ativa:#FFD54A;
-  --sombra-card:none;
-  --sombra-media:none;
+  --cor-cabecalho:#FFD54A !important;
+  --cor-cabecalho-escura:#FFD54A !important;
+  --cor-background:#000000 !important;
+  --cor-card:#000000 !important;
+  --cor-fundo-suave:#101010 !important;
+  --cor-borda:#FFFFFF !important;
+  --cor-texto:#FFFFFF !important;
+  --cor-texto-secundario:#EDEDED !important;
+  --cor-botoes:#FFD54A !important;
+  --cor-botoes-hover:#FFE28A !important;
+  --cor-destaque:#FFD54A !important;
+  --cor-dourado:#FFD54A !important;
+  --cor-aba-ativa:#FFD54A !important;
+  --sombra-card:none !important;
+  --sombra-media:none !important;
 }
 
-/* TEMAS PARA DALTONISMO */
+/* TEMAS PARA DALTONISMO — mesma prioridade (!important) sobre temas
+   decorativos, para garantir cores sempre distinguíveis. */
 [data-daltonismo="protanopia"]{
-  --cor-cabecalho:#2E5FB2; --cor-botoes:#2E5FB2; --cor-botoes-hover:#3E72C9; --cor-destaque:#2E5FB2; --cor-aba-ativa:#2E5FB2;
-  --cor-urgente:#B2862E; --cor-atencao:#8A6A1E; --cor-sucesso:#2E7D53;
+  --cor-cabecalho:#2E5FB2 !important; --cor-botoes:#2E5FB2 !important; --cor-botoes-hover:#3E72C9 !important; --cor-destaque:#2E5FB2 !important; --cor-aba-ativa:#2E5FB2 !important;
+  --cor-urgente:#B2862E !important; --cor-atencao:#8A6A1E !important; --cor-sucesso:#2E7D53 !important;
 }
 [data-daltonismo="deuteranopia"]{
-  --cor-cabecalho:#2E5FB2; --cor-botoes:#2E5FB2; --cor-botoes-hover:#3E72C9; --cor-destaque:#2E5FB2; --cor-aba-ativa:#2E5FB2;
-  --cor-urgente:#B2862E; --cor-atencao:#8A6A1E; --cor-sucesso:#2E5FB2;
+  --cor-cabecalho:#2E5FB2 !important; --cor-botoes:#2E5FB2 !important; --cor-botoes-hover:#3E72C9 !important; --cor-destaque:#2E5FB2 !important; --cor-aba-ativa:#2E5FB2 !important;
+  --cor-urgente:#B2862E !important; --cor-atencao:#8A6A1E !important; --cor-sucesso:#2E5FB2 !important;
 }
 [data-daltonismo="tritanopia"]{
-  --cor-cabecalho:#B2382E; --cor-botoes:#B2382E; --cor-botoes-hover:#C24C41; --cor-destaque:#B2382E; --cor-aba-ativa:#B2382E;
-  --cor-urgente:#B2382E; --cor-atencao:#B9762E; --cor-sucesso:#2E7D6B;
+  --cor-cabecalho:#B2382E !important; --cor-botoes:#B2382E !important; --cor-botoes-hover:#C24C41 !important; --cor-destaque:#B2382E !important; --cor-aba-ativa:#B2382E !important;
+  --cor-urgente:#B2382E !important; --cor-atencao:#B9762E !important; --cor-sucesso:#2E7D6B !important;
 }
 
 /* Redução de animações (opção interna do site) */
@@ -533,6 +538,58 @@ textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible{
 .config-linha{ display:flex; align-items:center; justify-content:space-between; padding:8px 0; gap:10px; }
 .switch{ width:22px; height:22px; }
 .opcoes-tema{ display:flex; flex-wrap:wrap; gap:8px; }
+
+/* ---- Seleção de temas (Personalize seu aplicativo) ---- */
+.config-grupo-temas .subtexto-view{ margin-bottom:14px; }
+
+.tema-categoria{ margin-bottom:10px; }
+.tema-categoria:last-child{ margin-bottom:0; }
+.tema-categoria-cabecalho{
+  width:100%; display:flex; align-items:center; justify-content:space-between;
+  background:var(--cor-fundo-suave); border:none; border-radius:var(--raio-pequeno);
+  padding:12px 14px; font-weight:700; font-size:.95rem; color:var(--cor-texto);
+  min-height:0;
+}
+.tema-categoria-cabecalho .tema-categoria-titulo{ display:flex; align-items:center; gap:8px; }
+.tema-categoria-seta{ transition:transform .25s ease; color:var(--cor-texto-secundario); }
+.tema-categoria-cabecalho[aria-expanded="true"] .tema-categoria-seta{ transform:rotate(180deg); }
+.tema-categoria-fixa{
+  /* Cabeçalho do Tema Padrão: mesmo visual, mas sem seta (não recolhe) */
+  cursor:default;
+}
+
+.tema-categoria-corpo{
+  display:grid; grid-template-rows:0fr; opacity:0;
+  transition:grid-template-rows .3s ease, opacity .25s ease;
+}
+.tema-categoria-corpo.aberta{ grid-template-rows:1fr; opacity:1; }
+.tema-categoria-corpo-interno{ overflow:hidden; }
+
+.temas-grade{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(140px,1fr));
+  gap:10px; padding-top:10px;
+}
+
+.tema-card{
+  background:var(--cor-card); border:2px solid var(--cor-borda); border-radius:var(--raio-pequeno);
+  padding:12px; text-align:left; min-height:0; cursor:pointer;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.tema-card:hover{ box-shadow:var(--sombra-card); }
+.tema-card.ativo{
+  border-color:var(--cor-tema-borda, var(--cor-destaque));
+  box-shadow:var(--sombra-media);
+  transform:scale(1.03);
+}
+.tema-card-nome{
+  font-weight:700; font-size:.82rem; display:flex; align-items:center; gap:6px;
+  margin-bottom:10px; line-height:1.25;
+}
+.tema-card-conteudo{ animation:surgirSuave .3s ease; }
+.tema-card-barras{ display:flex; flex-direction:column; gap:4px; }
+.tema-card-barra{ height:7px; border-radius:4px; border:1px solid rgba(0,0,0,.06); }
+.tema-card-frase{ font-size:.8rem; font-style:italic; color:var(--cor-texto-secundario); margin:0 0 8px; }
+.tema-card-check{ font-size:.78rem; font-weight:700; color:var(--cor-sucesso); }
 .sobre-app{ text-align:center; }
 .sobre-app p{ margin:2px 0; font-size:.9rem; color:var(--cor-texto-secundario); }
 .sobre-logo{ width:56px; height:56px; border-radius:50%; overflow:hidden; background:var(--cor-fundo-suave);

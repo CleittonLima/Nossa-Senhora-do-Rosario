@@ -49,7 +49,7 @@ const DESCRICAO_PAROQUIA = "";
 // Nome do desenvolvedor do site
 const NOME_DESENVOLVEDOR = "Cleiton Lima";
 // Versão do site/aplicativo
-const VERSAO_APP = "1.0.8";
+const VERSAO_APP = "1.1.0";
 // Telefone e endereço gerais da paróquia (exibidos na tela Sobre)
 const TELEFONE_PAROQUIA = "(87) 3831-2814";
 const ENDERECO_PAROQUIA = "138, Praça Agamenon Magalhães, 102 - Nossa Sra. da Penha, Serra Talhada - PE, 56903-530";
@@ -78,7 +78,7 @@ const REDE_SOCIAL_OFICIAL = {
 // para trocá-la, veja os comentários lá. Aqui ela só é usada como
 // referência para o comportamento (ex.: fallback de imagem quebrada).
 // Tamanho recomendado: 900 x 900 px (quadrada, para não cortar mal
-// dentro do círculo). Formato: JPG, JPEG ou webp.
+// dentro do círculo). Formato: JPG, JPEG ou PNG.
 // ========================================
 const IMAGEM_PAROQUIA = "assets/Logos/Brasão Rosário.webp";
 
@@ -264,7 +264,7 @@ const DADOS_PIX = {
   destinatario: NOME_PAROQUIA,
   // QR CODE DO PIX
   // Para trocar o QR Code, substitua o arquivo:
-  // assets/Oferta/Pixteste.png (ajuste o caminho abaixo se o nome mudar)
+  // assets/Oferta/Pixteste.webp (ajuste o caminho abaixo se o nome mudar)
   qrcode: "assets/Oferta/Pixteste.webp",
   informacoes: "Sua oferta ajuda a manter as obras sociais e a estrutura da paróquia."
 };
@@ -306,7 +306,8 @@ function obterAvatar(id){ return AVATARES.find(a => a.id === id) || null; }
    ===================================================================== */
 const CHAVES = {
   usuario: "paroquia_usuario",
-  preferencias: "paroquia_preferencias"
+  preferencias: "paroquia_preferencias",
+  temaVisual: "paroquia_tema_visual"
 };
 
 function salvarLS(chave, valor){
@@ -368,6 +369,134 @@ function aplicarPreferencias(prefs){
   raiz.setAttribute("data-alto-contraste", String(prefs.altoContraste));
   raiz.setAttribute("data-daltonismo", prefs.daltonismo);
   raiz.setAttribute("data-reduzir-animacoes", String(prefs.reduzirAnimacoes));
+}
+
+
+/* =====================================================================
+   7B. TEMAS VISUAIS (marianos, santos, litúrgicos)
+   Os dados de cada tema (nome, categoria, frase, classe) vêm de
+   themes.js; as cores de cada um vêm de themes.css. Aqui só fica a
+   lógica: aplicar o tema escolhido, lembrar a categoria aberta,
+   montar os cards e o acordeão, e salvar a escolha no localStorage.
+   ===================================================================== */
+function obterTemaVisual(){
+  return lerLS(CHAVES.temaVisual, "padrao");
+}
+function salvarTemaVisual(temaId){
+  salvarLS(CHAVES.temaVisual, temaId);
+  aplicarTemaVisual(temaId);
+}
+// Aplica a classe do tema escolhido no <html>, removendo qualquer
+// classe de tema anterior (as classes "tema-*" vêm de themes.css).
+function aplicarTemaVisual(temaId){
+  const tema = TEMAS.find(t => t.id === temaId) || TEMAS[0];
+  const raiz = document.documentElement;
+  TEMAS.forEach(t => raiz.classList.remove(t.classe));
+  raiz.classList.add(tema.classe);
+}
+
+// Lê as cores reais de um tema (cabeçalho, fundo, cards, botões,
+// destaque) direto do CSS, criando um elemento temporário invisível
+// com a classe do tema e lendo suas variáveis calculadas. Assim,
+// themes.js continua guardando só metadados — nenhuma cor duplicada
+// em JavaScript.
+function obterCoresTema(classe){
+  const el = document.createElement("div");
+  el.className = classe;
+  el.style.display = "none";
+  document.body.appendChild(el);
+  const cs = getComputedStyle(el);
+  const cores = {
+    cabecalho: cs.getPropertyValue("--cor-cabecalho").trim(),
+    fundo: cs.getPropertyValue("--cor-background").trim(),
+    cards: cs.getPropertyValue("--cor-card").trim(),
+    botoes: cs.getPropertyValue("--cor-botoes").trim(),
+    destaque: cs.getPropertyValue("--cor-destaque").trim()
+  };
+  el.remove();
+  return cores;
+}
+
+// Categoria(s) com o acordeão aberto no momento (permite mais de uma
+// aberta ao mesmo tempo; a categoria do tema ativo começa aberta).
+let categoriasTemaAbertas = new Set();
+
+function htmlCardTema(tema, temaAtivoId){
+  const ativo = tema.id === temaAtivoId;
+  const cores = obterCoresTema(tema.classe);
+  const icone = tema.icone ? `${tema.icone} ` : "";
+  const conteudo = ativo ? `
+      <p class="tema-card-frase">"${tema.frase}"</p>
+      <div class="tema-card-check">✔ Tema ativo</div>
+    ` : `
+      <div class="tema-card-barras">
+        <span class="tema-card-barra" style="background:${cores.cabecalho}"></span>
+        <span class="tema-card-barra" style="background:${cores.fundo}"></span>
+        <span class="tema-card-barra" style="background:${cores.cards}"></span>
+        <span class="tema-card-barra" style="background:${cores.botoes}"></span>
+        <span class="tema-card-barra" style="background:${cores.destaque}"></span>
+      </div>
+    `;
+  return `
+    <button type="button" class="tema-card ${ativo ? "ativo" : ""}" data-escolher-tema="${tema.id}"
+            style="--cor-tema-borda:${cores.cabecalho}" aria-pressed="${ativo}">
+      <div class="tema-card-nome">${icone}${tema.nome}</div>
+      <div class="tema-card-conteudo">${conteudo}</div>
+    </button>`;
+}
+
+function renderizarTemas(){
+  const temaAtivoId = obterTemaVisual();
+  // A categoria do tema ativo começa sempre aberta, para o usuário ver
+  // de cara qual está selecionado.
+  const temaAtivo = TEMAS.find(t => t.id === temaAtivoId);
+  if(temaAtivo) categoriasTemaAbertas.add(temaAtivo.categoria);
+
+  const cont = document.getElementById("temas-categorias");
+  cont.innerHTML = CATEGORIAS_TEMAS.map(cat => {
+    const temasCategoria = TEMAS.filter(t => t.categoria === cat.id);
+    const grade = `<div class="temas-grade">${temasCategoria.map(t => htmlCardTema(t, temaAtivoId)).join("")}</div>`;
+
+    if(!cat.colapsavel){
+      // Tema Padrão: sempre visível, sem acordeão.
+      return `
+        <div class="tema-categoria">
+          <div class="tema-categoria-cabecalho tema-categoria-fixa">
+            <span class="tema-categoria-titulo">${cat.icone} ${cat.nome}</span>
+          </div>
+          ${grade}
+        </div>`;
+    }
+
+    const aberta = categoriasTemaAbertas.has(cat.id);
+    return `
+      <div class="tema-categoria">
+        <button type="button" class="tema-categoria-cabecalho" data-categoria-tema="${cat.id}" aria-expanded="${aberta}">
+          <span class="tema-categoria-titulo">${cat.icone} ${cat.nome}</span>
+          <span class="tema-categoria-seta" aria-hidden="true">▾</span>
+        </button>
+        <div class="tema-categoria-corpo ${aberta ? "aberta" : ""}" id="tema-categoria-corpo-${cat.id}">
+          <div class="tema-categoria-corpo-interno">${grade}</div>
+        </div>
+      </div>`;
+  }).join("");
+
+  // Acordeão: abre/fecha a categoria tocada.
+  cont.querySelectorAll("[data-categoria-tema]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const catId = btn.dataset.categoriaTema;
+      categoriasTemaAbertas.has(catId) ? categoriasTemaAbertas.delete(catId) : categoriasTemaAbertas.add(catId);
+      renderizarTemas();
+    });
+  });
+
+  // Escolher um tema: aplica na hora, salva e atualiza os cards.
+  cont.querySelectorAll("[data-escolher-tema]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      salvarTemaVisual(btn.dataset.escolherTema);
+      renderizarTemas();
+    });
+  });
 }
 
 
@@ -721,6 +850,7 @@ function renderizarConfiguracoes(){
   const usuario = obterUsuario() || { nomeCompleto: "", apelido: "", avatar: AVATARES[0].id };
   document.getElementById("config-nome-completo").value = usuario.nomeCompleto || "";
   document.getElementById("config-apelido").value = usuario.apelido || "";
+  renderizarTemas();
   renderizarSeletorAvatar("config-avatar-opcoes", usuario.avatar);
   document.getElementById("config-avatar-opcoes").querySelectorAll("[data-escolher-avatar]").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -1057,6 +1187,7 @@ function mostrarTelaRetorno(){
 
 function inicializar(){
   aplicarPreferencias(obterPreferencias());
+  aplicarTemaVisual(obterTemaVisual());
   ligarEventosGlobais();
   ligarAnimacaoDeToque();
   registrarPWA();
