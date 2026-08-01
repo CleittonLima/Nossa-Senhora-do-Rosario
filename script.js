@@ -101,9 +101,12 @@ const LOGO_PAROQUIA = "assets/Logos/Brasão Rosário.webp";
    3. Altere "nome", "cor", "endereco", "contato" e "descricao";
    4. Altere "logo", "imagem" e a lista "fotos" (veja a pasta assets/);
    5. Altere (ou apague) "whatsapp" e "googleMaps";
-   6. Adicione os horários dentro de "horarios: [ ... ]";
-   7. Adicione os avisos dentro de "avisos: [ ... ]";
-   8. Adicione os eventos dentro de "eventos: [ ... ]".
+   6. Adicione os horários dentro de "horarios: [ ... ]" (use o dia da
+      semana por extenso, ex.: "Domingo" — a data é calculada sozinha);
+   7. Adicione os avisos dentro de "avisos: [ ... ]" (use uma data fixa,
+      ex.: "2026-08-15" — o aviso some sozinho no dia seguinte a ela);
+   8. Adicione os eventos dentro de "eventos: [ ... ]" (mesma ideia dos
+      avisos: data fixa, some sozinho no dia seguinte).
    ============================================================
    Imagens: pastas dentro de assets/, uma por igreja (ex.:
    assets/Imagens_Rosario/, assets/Imagens_SaoCristovao/...).
@@ -145,27 +148,35 @@ const IGREJAS = {
     googleMaps: "https://maps.app.goo.gl/Exp2J25ehiRKnRocA",
 
     // ADICIONE OU EDITE OS HORÁRIOS DESTA IGREJA AQUI
-    // "data" é opcional (AAAA-MM-DD); quando informada, o dia da semana
-    // é calculado automaticamente e a data completa aparece na listagem.
+    // Coloque o dia da semana por extenso em "diaSemana" (Domingo,
+    // Segunda-feira, Terça-feira, Quarta-feira, Quinta-feira,
+    // Sexta-feira ou Sábado) — o site calcula sozinho a data da
+    // próxima ocorrência, sempre atualizada, sem você precisar mexer
+    // em nada depois que a semana passa.
     horarios: [
-      { id: "h1", nome: "Celebração Eucaristica na Matriz", tipo: "Missa", data: proximaDataParaDia(0), horario: "06:30", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Matriz de Nossa Senhora do Rosário." },
-      { id: "h2", nome: "Adoração ao Santissimo Sacramento", tipo: "Adoração", data: proximaDataParaDia(4), horario: "18:00", recorrencia: "Semanal", descricao: "Adoração ao Santíssimo Sacramento na Matriz." },
-      { id: "h3", nome: "Celebração Eucaristica na Matriz", tipo: "Missa", data: proximaDataParaDia(4), horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucarística da Matriz, encerrando com a Bênção do Santíssimo Sacramento." }
+      { id: "h1", nome: "Celebração Eucaristica na Matriz", tipo: "Missa", diaSemana: "Domingo", horario: "06:30", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Matriz de Nossa Senhora do Rosário." },
+      { id: "h2", nome: "Adoração ao Santissimo Sacramento", tipo: "Adoração", diaSemana: "Quinta-feira", horario: "18:00", recorrencia: "Semanal", descricao: "Adoração ao Santíssimo Sacramento na Matriz." },
+      { id: "h3", nome: "Celebração Eucaristica na Matriz", tipo: "Missa", diaSemana: "Quinta-feira", horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucarística da Matriz, encerrando com a Bênção do Santíssimo Sacramento." }
     ],
     // ADICIONE OU EDITE OS AVISOS DESTA IGREJA AQUI
+    // "data" no formato "AAAA-MM-DD" (ano-mês-dia), ex.: "2026-08-15".
+    // Assim que o dia passar, o aviso some sozinho da lista no dia
+    // seguinte — não precisa apagar manualmente.
     // Prioridade: "Normal", "Importante" ou "Urgente".
     avisos: [
-      { id: "a1", titulo: "Celebração Eucaristica", texto: "Celebração Eucaristica no Riacho do Bode", prioridade: "Importante", data: proximosDias(5) },
-      { id: "a2", titulo: "Celebração Eucaristica", texto: "Celebração Eucaristica nas Granjas", prioridade: "Importante", data: proximosDias(3) }
-    
+      { id: "a1", titulo: "Celebração Eucaristica", texto: "Celebração Eucaristica no Riacho do Bode", prioridade: "Importante", data: "2026-08-06" },
+      { id: "a2", titulo: "Celebração Eucaristica", texto: "Celebração Eucaristica nas Granjas", prioridade: "Importante", data: "2026-08-04" }
     ],
     // ADICIONE OU EDITE OS EVENTOS DESTA IGREJA AQUI
+    // Mesma ideia dos avisos: "data" no formato "AAAA-MM-DD". Ótimo para
+    // festas anuais, novenas e outros eventos que acontecem uma vez —
+    // o evento desaparece sozinho no dia seguinte à data marcada.
     eventos: [
-    { id: "e1", nome: "Novena do Dizimo", data: proximosDias(0), horario: "19:00", local: "Praça São Cristóvão", descricao: "3° dia da Novena do Dizimo" },
-    { id: "e2", nome: "Novena do Dizimo", data: proximosDias(2), horario: "19:00", local: "Casa de Iellen e Matheus (Caxixola)", descricao: "4° dia da Novena do Dizimo" },
-    { id: "e3", nome: "Novena do Dizimo", data: proximosDias(3), horario: "19:00", local: "A definir", descricao: "5° dia da Novena do Dizimo" },
-    { id: "e4", nome: "Novena do Dizimo", data: proximosDias(4), horario: "19:00", local: "Salão Paroquial", descricao: "6° dia da Novena do Dizimo" },
-    { id: "e5", nome: "Novena do Dizimo", data: proximosDias(6), horario: "19:00", local: "A definir", descricao: "7° dia da Novena do Dizimo" }
+      { id: "e1", nome: "Novena do Dizimo", data: "2026-08-01", horario: "19:00", local: "Praça São Cristóvão", descricao: "3° dia da Novena do Dizimo" },
+      { id: "e2", nome: "Novena do Dizimo", data: "2026-08-03", horario: "19:00", local: "Casa de Iellen e Matheus (Caxixola)", descricao: "4° dia da Novena do Dizimo" },
+      { id: "e3", nome: "Novena do Dizimo", data: "2026-08-04", horario: "19:00", local: "A definir", descricao: "5° dia da Novena do Dizimo" },
+      { id: "e4", nome: "Novena do Dizimo", data: "2026-08-05", horario: "19:00", local: "Salão Paroquial", descricao: "6° dia da Novena do Dizimo" },
+      { id: "e5", nome: "Novena do Dizimo", data: "2026-08-06", horario: "19:00", local: "A definir", descricao: "7° dia da Novena do Dizimo" }
     ]
   },
 
@@ -187,8 +198,8 @@ const IGREJAS = {
     whatsapp: "5587981779811",
     googleMaps: "https://maps.app.goo.gl/nbuQaZyYRrKayqa4A",
     horarios: [
-      { id: "h4", nome: "Celebração Eucaristica na Conceição", tipo: "Missa", data: proximaDataParaDia(0), horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Capela de Nossa Senhora da Conceição." },
-      { id: "h5", nome: "Confições Individuais", tipo: "Confições", data: proximaDataParaDia(4), horario: "09:00 às 11:00", recorrencia: "Semanal", descricao: "Confições individuais na secretaria paroquial." }
+      { id: "h4", nome: "Celebração Eucaristica na Conceição", tipo: "Missa", diaSemana: "Domingo", horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Capela de Nossa Senhora da Conceição." },
+      { id: "h5", nome: "Confições Individuais", tipo: "Confições", diaSemana: "Quinta-feira", horario: "09:00 às 11:00", recorrencia: "Semanal", descricao: "Confições individuais na secretaria paroquial." }
     ],
     avisos: [],
     eventos: []
@@ -212,11 +223,11 @@ const IGREJAS = {
     whatsapp: "",
     googleMaps: "https://maps.app.goo.gl/6VhxPcnGeSV1GU8W7",
     horarios: [
-      { id: "h3", nome: "Celebração Eucaristica na São Cristóvão", tipo: "Missa", data: proximaDataParaDia(6), horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Capela de São Cristóvão." }
+      { id: "h3", nome: "Celebração Eucaristica na São Cristóvão", tipo: "Missa", diaSemana: "Sábado", horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Capela de São Cristóvão." }
     ],
     avisos: [],
     eventos: [
-      /*{ id: "e2", nome: "Retiro de Jovens", data: proximosDias(35), horario: "08:00", local: "Casa de Retiros", descricao: "Retiro espiritual para jovens da comunidade." }
+      /*{ id: "e2", nome: "Retiro de Jovens", data: "2026-09-05", horario: "08:00", local: "Casa de Retiros", descricao: "Retiro espiritual para jovens da comunidade." }
       */
     ]
   },
@@ -240,19 +251,6 @@ const IGREJAS = {
   }
 
 };
-
-// Funções auxiliares usadas apenas para gerar datas de exemplo acima.
-function proximosDias(qtd){
-  const d = new Date();
-  d.setDate(d.getDate() + qtd);
-  return d.toISOString().slice(0,10);
-}
-function proximaDataParaDia(diaAlvo){
-  const d = new Date();
-  const diff = (diaAlvo - d.getDay() + 7) % 7;
-  d.setDate(d.getDate() + diff);
-  return d.toISOString().slice(0,10);
-}
 
 
 /* =====================================================================
@@ -540,6 +538,31 @@ function linhaDataCompleta(dataISO, horario){
   return `📅 ${formatarDataBR(dataISO)} · 📆 ${calcularDiaSemana(dataISO)}${hora}`;
 }
 
+// A partir de um dia da semana por extenso (ex.: "Domingo"), calcula a
+// data (AAAA-MM-DD) da próxima ocorrência — hoje mesmo, se hoje já for
+// esse dia. Usado pelos Horários, que se repetem toda semana: assim
+// ninguém precisa ficar calculando ou atualizando datas manualmente.
+const DIAS_SEMANA_EM_ORDEM = ["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado"];
+function proximaOcorrenciaDiaSemana(nomeDia){
+  const alvo = DIAS_SEMANA_EM_ORDEM.indexOf(nomeDia);
+  if(alvo === -1) return null;
+  const hoje = new Date();
+  const diferenca = (alvo - hoje.getDay() + 7) % 7;
+  hoje.setDate(hoje.getDate() + diferenca);
+  return hoje.toISOString().slice(0,10);
+}
+
+// Verdadeiro quando a data (AAAA-MM-DD) já passou — ou seja, é anterior
+// a hoje. Comparar as datas como texto funciona porque estão sempre no
+// formato AAAA-MM-DD (a ordem alfabética é igual à ordem cronológica).
+// Usado para Avisos e Eventos sumirem sozinhos no dia seguinte à data
+// marcada, sem precisar apagar manualmente.
+function dataJaPassou(dataISO){
+  if(!dataISO) return false;
+  const hojeISO = new Date().toISOString().slice(0,10);
+  return dataISO < hojeISO;
+}
+
 // Lista todas as igrejas como um array (mais fácil de percorrer para
 // renderizar), incluindo o "id" (a chave usada em IGREJAS) em cada item.
 function listarIgrejasArray(){
@@ -555,17 +578,19 @@ function corIgreja(id){ const i = obterIgreja(id); return i ? i.cor : "#999999";
 // já com "igrejaId" marcado em cada item (facilita filtrar por igreja).
 function listarHorarios(){
   return listarIgrejasArray()
-    .flatMap(i => (i.horarios || []).map(h => ({ ...h, igrejaId: i.id })))
-    .sort((a,b) => (a.data || "").localeCompare(b.data || ""));
+    .flatMap(i => (i.horarios || []).map(h => ({ ...h, igrejaId: i.id, data: proximaOcorrenciaDiaSemana(h.diaSemana) })))
+    .sort((a,b) => `${a.data}${a.horario}`.localeCompare(`${b.data}${b.horario}`));
 }
 function listarAvisos(){
   return listarIgrejasArray()
     .flatMap(i => (i.avisos || []).map(a => ({ ...a, igrejaId: i.id })))
+    .filter(a => !dataJaPassou(a.data))
     .sort((a,b) => new Date(a.data) - new Date(b.data));
 }
 function listarEventos(){
   return listarIgrejasArray()
     .flatMap(i => (i.eventos || []).map(e => ({ ...e, igrejaId: i.id })))
+    .filter(e => !dataJaPassou(e.data))
     .sort((a,b) => new Date(a.data) - new Date(b.data));
 }
 
