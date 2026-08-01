@@ -60,7 +60,7 @@ const TEMAS = [
     categoria: "marianos",
     nome: "Nossa Senhora do Rosário",
     icone: "🌹",
-    frase: "rezem o terço todos os dias pela conversão dos pecadores.",
+    frase: "Rezem o terço todos os dias pela conversão dos pecadores.",
     classe: "tema-rosario"
 },
 
