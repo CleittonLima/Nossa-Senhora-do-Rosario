@@ -99,6 +99,15 @@ const TEMAS = [
     classe: "tema-fatima"
   },
 
+  {
+    id: "aparecida",
+    categoria: "marianos",
+    nome: "Nossa Senhora Aparecida",
+    icone: "👑",
+    frase: "Mãe Aparecida, conduzi-nos sempre a Jesus.",
+    classe: "tema-aparecida"
+  },
+
   // ---- Temas dos Santos ----
   {
     id: "carlo",
@@ -141,6 +150,15 @@ const TEMAS = [
     icone: "👁️",
     frase: "A luz de Cristo ilumina meus olhos e meu coração.",
     classe: "tema-luzia"
+  },
+
+  {
+    id: "joana",
+    categoria: "santos",
+    nome: "Santa Joana D'Arc",
+    icone: "⚔️",
+    frase: "Deus é meu Senhor; n'Ele confio.",
+    classe: "tema-joana"
   },
 
   // ---- Temas Litúrgicos ----

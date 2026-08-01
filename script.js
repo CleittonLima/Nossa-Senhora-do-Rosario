@@ -289,6 +289,7 @@ const AVATARES = [
   { id: "sao-jose", nome: "São José", imagem: "assets/Avatares/São José.webp" },
   { id: "santa-luzia", nome: "Santa Luzia", imagem: "assets/Avatares/Santa Luzia.webp" },
   { id: "santa-terezinha", nome: "Santa Terezinha", imagem: "assets/Avatares/Santa Terezinha.webp" },
+  { id: "joana-darc", nome: "Santa Joana D'Arc", imagem: "assets/Avatares/Santa Joana D'Arc.webp" },
   { id: "santo-antonio", nome: "Santo Antônio", imagem: "assets/Avatares/Santo Antônio.webp" },
   { id: "acutis", nome: "São Carlo Acutis", imagem: "assets/Avatares/São Carlo Acutis.webp" },
   { id: "fracisco-assis", nome: "São Francisco de Assis", imagem: "assets/Avatares/São Francisco de Assis.webp" }

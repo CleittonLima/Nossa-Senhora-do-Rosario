@@ -95,6 +95,17 @@
   --cor-aba-ativa:#C79A2B;
 }
 
+.tema-aparecida{
+  --cor-cabecalho:#153B7A;
+  --cor-cabecalho-escura:#102C5B;
+  --cor-background:#EEF3FB;
+  --cor-card:#FDFEFF;
+  --cor-fundo-suave:#D8E5F7;
+  --cor-botoes:#153B7A;
+  --cor-botoes-hover:#2C5BA1;
+  --cor-destaque:#153B7A;
+  --cor-aba-ativa:#153B7A;
+}
 
 /* =====================================================
    TEMAS DOS SANTOS
@@ -157,6 +168,18 @@
   --cor-botoes-hover:#43A17C;
   --cor-destaque:#2D8A66;
   --cor-aba-ativa:#2D8A66;
+}
+
+.tema-joana{
+  --cor-cabecalho:#3E5C8A;
+  --cor-cabecalho-escura:#2C4366;
+  --cor-background:#F3F6FB;
+  --cor-card:#FEFFFF;
+  --cor-fundo-suave:#DCE6F3;
+  --cor-botoes:#3E5C8A;
+  --cor-botoes-hover:#5674A2;
+  --cor-destaque:#3E5C8A;
+  --cor-aba-ativa:#3E5C8A;
 }
 
 /* =====================================================
