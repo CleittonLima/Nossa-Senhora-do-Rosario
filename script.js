@@ -174,9 +174,10 @@ const IGREJAS = {
     eventos: [
       { id: "e1", nome: "Novena do Dizimo", data: "2026-08-01", horario: "19:00", local: "Praça São Cristóvão", descricao: "3° dia da Novena do Dizimo" },
       { id: "e2", nome: "Novena do Dizimo", data: "2026-08-03", horario: "19:00", local: "Casa de Iellen e Matheus (Caxixola)", descricao: "4° dia da Novena do Dizimo" },
-      { id: "e3", nome: "Novena do Dizimo", data: "2026-08-04", horario: "19:00", local: "A definir", descricao: "5° dia da Novena do Dizimo" },
-      { id: "e4", nome: "Novena do Dizimo", data: "2026-08-05", horario: "19:00", local: "Salão Paroquial", descricao: "6° dia da Novena do Dizimo" },
-      { id: "e5", nome: "Novena do Dizimo", data: "2026-08-06", horario: "19:00", local: "A definir", descricao: "7° dia da Novena do Dizimo" }
+      { id: "e3", nome: "Novena do Dizimo", data: "2026-08-04", horario: "19:00", local: "Salão Paroquial", descricao: "5° dia da Novena do Dizimo" },
+      { id: "e4", nome: "Novena do Dizimo", data: "2026-08-05", horario: "19:00", local: "Casa de Cris (Final da Praça São Cristóvão)", descricao: "6° dia da Novena do Dizimo" },
+      { id: "e5", nome: "Novena do Dizimo", data: "2026-08-07", horario: "19:00", local: "Salão Paroquial", descricao: "7° dia da Novena do Dizimo" },
+      { id: "e5", nome: "Novena do Dizimo", data: "2026-08-08", horario: "19:00", local: "Salão Paroquial", descricao: "8° dia da Novena do Dizimo" }
     ]
   },
 
