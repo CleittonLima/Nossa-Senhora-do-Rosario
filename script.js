@@ -164,8 +164,8 @@ const IGREJAS = {
     // seguinte — não precisa apagar manualmente.
     // Prioridade: "Normal", "Importante" ou "Urgente".
     avisos: [
-      { id: "a1", titulo: "Celebração Eucaristica", texto: "Celebração Eucaristica no Riacho do Bode", prioridade: "Importante", data: "2026-08-06" },
-      { id: "a2", titulo: "Celebração Eucaristica", texto: "Celebração Eucaristica nas Granjas", prioridade: "Importante", data: "2026-08-04" }
+      { id: "a1", titulo: "Celebração Eucaristica", texto: "Celebração Eucaristica no Riacho do Bode", prioridade: "Importante", data: "2026-07-028" },
+      { id: "a2", titulo: "Celebração Eucaristica", texto: "Celebração Eucaristica nas Granjas", prioridade: "Importante", data: "2026-07-29" }
     ],
     // ADICIONE OU EDITE OS EVENTOS DESTA IGREJA AQUI
     // Mesma ideia dos avisos: "data" no formato "AAAA-MM-DD". Ótimo para
