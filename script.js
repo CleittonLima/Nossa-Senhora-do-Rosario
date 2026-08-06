@@ -165,7 +165,7 @@ const IGREJAS = {
     // seguinte — não precisa apagar manualmente.
     // Prioridade: "Normal", "Importante" ou "Urgente".
     avisos: [
-      { id: "a1", titulo: "Celebração Eucaristica", texto: "Celebração Eucaristica as 09:00h no sítio Escadinha a Capela de São José", prioridade: "Importante", data: "2026-08-07" },
+      { id: "a1", titulo: "Celebração Eucaristica", texto: "Celebração Eucaristica as 09:00h no sítio Escadinha na Capela de São José", prioridade: "Importante", data: "2026-08-07" },
       { id: "a2", titulo: "Celebração Eucaristica", texto: "Celebração Eucaristica nas Granjas", prioridade: "Importante", data: "2026-07-29" }
     ],
     // ADICIONE OU EDITE OS EVENTOS DESTA IGREJA AQUI
