@@ -156,8 +156,8 @@ const IGREJAS = {
     horarios: [
       { id: "h1", nome: "Celebração Eucaristica na Matriz", tipo: "Missa", diaSemana: "Domingo", horario: "06:30", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Matriz de Nossa Senhora do Rosário." },
       { id: "h2", nome: "Adoração ao Santissimo Sacramento", tipo: "Adoração", diaSemana: "Quinta-feira", horario: "18:00", recorrencia: "Semanal", descricao: "Adoração ao Santíssimo Sacramento na Matriz." },
-      { id: "h3", nome: "Celebração Eucaristica na Matriz", tipo: "Missa", diaSemana: "Quinta-feira", horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucarística da Matriz, encerrando com a Bênção do Santíssimo Sacramento." },
-      { id: "h1", nome: "Celebração Eucaristica na Matriz", tipo: "Missa", diaSemana: "Sexta-feira", horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Matriz de Nossa Senhora do Rosário." }
+      { id: "h3", nome: "Celebração Eucaristica na Matriz", tipo: "Missa", diaSemana: "Quinta-feira", horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucarística da Matriz, encerrando com a Bênção do Santíssimo Sacramento." }
+      // { id: "h1", nome: "Celebração Eucaristica na Matriz", tipo: "Missa", diaSemana: "Sexta-feira", horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Matriz de Nossa Senhora do Rosário." }
     ],
     // ADICIONE OU EDITE OS AVISOS DESTA IGREJA AQUI
     // "data" no formato "AAAA-MM-DD" (ano-mês-dia), ex.: "2026-08-15".
@@ -166,7 +166,9 @@ const IGREJAS = {
     // Prioridade: "Normal", "Importante" ou "Urgente".
     avisos: [
       { id: "a1", titulo: "Celebração Eucaristica", texto: "Celebração Eucaristica as 09:00h no sítio Escadinha na Capela de São José", prioridade: "Importante", data: "2026-08-07" },
-      { id: "a2", titulo: "Celebração Eucaristica", texto: "Celebração Eucaristica nas Granjas", prioridade: "Importante", data: "2026-07-29" }
+      { id: "a2", titulo: "Teste de Aviso Normal", texto: "Teste para ser apresentado o sistema", prioridade: "Normal", data: "2026-08-09" },
+      { id: "a2", titulo: "Teste de Aviso Importante", texto: "Teste para ser apresentado o sistema", prioridade: "Importante", data: "2026-08-09" },
+      { id: "a2", titulo: "Teste de Aviso Urgente", texto: "Teste para ser apresentado o sistema", prioridade: "Urgente", data: "2026-08-09" }
     ],
     // ADICIONE OU EDITE OS EVENTOS DESTA IGREJA AQUI
     // Mesma ideia dos avisos: "data" no formato "AAAA-MM-DD". Ótimo para
@@ -178,8 +180,9 @@ const IGREJAS = {
       { id: "e3", nome: "Novena do Dizimo", data: "2026-08-04", horario: "19:00", local: "Salão Paroquial", descricao: "5° dia da Novena do Dizimo" },
       { id: "e4", nome: "Novena do Dizimo", data: "2026-08-05", horario: "19:00", local: "Casa de Cris (Final da Praça São Cristóvão)", descricao: "6° dia da Novena do Dizimo" },
       { id: "e5", nome: "Novena do Dizimo", data: "2026-08-06", horario: "19:00", local: "Salão Paroquial", descricao: "7° dia da Novena do Dizimo" },
-      { id: "e5", nome: "Novena do Dizimo", data: "2026-08-07", horario: "19:00", local: "Salão Paroquial", descricao: "8° dia da Novena do Dizimo" },
-      { id: "e5", nome: "Novena do Dizimo", data: "2026-08-08", horario: "19:00", local: "Salão Paroquial", descricao: "9° dia da Novena do Dizimo" }
+      { id: "e6", nome: "Novena do Dizimo", data: "2026-08-07", horario: "19:00", local: "Salão Paroquial", descricao: "8° dia da Novena do Dizimo" },
+      { id: "e7", nome: "Novena do Dizimo", data: "2026-08-08", horario: "19:00", local: "Casa de Yara (Rua Antônio Alves, próximo a estação)", descricao: "9° dia da Novena do Dizimo" },
+      { id: "e8", nome: "Apenas Teste", data: "2026-08-09", horario: "19:00", local: "Rua Fulano de Tal", descricao: "Teste para ser apresentado o sistema" }
     ]
   },
 
@@ -202,7 +205,7 @@ const IGREJAS = {
     googleMaps: "https://maps.app.goo.gl/nbuQaZyYRrKayqa4A",
     horarios: [
       { id: "h4", nome: "Celebração Eucaristica na Conceição", tipo: "Missa", diaSemana: "Domingo", horario: "19:00", recorrencia: "Semanal", descricao: "Celebração Eucaristica na Capela de Nossa Senhora da Conceição." },
-      { id: "h5", nome: "Confições Individuais", tipo: "Confições", diaSemana: "Sexta-feira", horario: "09:00 às 11:00", recorrencia: "Semanal", descricao: "Confições individuais na secretaria paroquial." }
+      { id: "h5", nome: "Confições Individuais", tipo: "Confições", diaSemana: "Quinta-feira", horario: "09:00 às 11:00", recorrencia: "Semanal", descricao: "Confições individuais na secretaria paroquial." }
     ],
     avisos: [],
     eventos: []
